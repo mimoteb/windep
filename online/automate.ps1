@@ -1,4 +1,4 @@
-$repo = 'https://raw.githubusercontent.com/mimoteb/win/main/online/automate.ps1?'
+$repo = 'https://github.com/mimoteb/windep/archive/refs/heads/main.zip'
 $repo_OutFile = '%temp%\windep.zip'
 Invoke-WebRequest -Uri $repo -OutFile $repo_OutFile
 # Extract the zip file
