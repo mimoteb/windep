@@ -1,22 +1,21 @@
 write-host 'Disabling services/ stopping them temporarily'
-$Services = Get-Content -Path .\lists\services.lst
+$items = Get-Content -Path .\lists\services.lst
 
-foreach ($Service in $Services)
+foreach ($item in $items)
 {
     try 
     {
-        write-host 'Stopping' $service
-        Stop-Service -Name $Service -ErrorAction SilentlyContinue
-	    net stop $Service
+        write-host 'Stopping' $item
+        Stop-Service -Name $item -ErrorAction SilentlyContinue
+	    net stop $item
 	}
     
     catch{   }
     try
     {
-        write-host 'Disabling' $service
-        Set-Service -Name $Service -StartupType 'Disabled' -ErrorAction SilentlyContinue
-        sc config $Service start=disabled
+        write-host 'Disabling' $item
+        Set-Service -Name $item -StartupType 'Disabled' -ErrorAction SilentlyContinue
+        sc config $item start=disabled
     }
     catch    {  }
 }
-read-host 'finished disabling services'
