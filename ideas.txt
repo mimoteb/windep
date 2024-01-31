@@ -1,3 +1,7 @@
+setupcommand.cmd is being called after a sucessful installation of windows
+setupcommand is downloading windep repo from github and execute automate.ps1
+the rest is handled by automate.ps1
+
 - create a directory for all the files in the project in temp directory and call it base
 - download the apps to windows temp directory and install them from there
 - online and offline repos?
