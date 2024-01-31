@@ -1,1 +1,4 @@
-winget install zoom.zoom telegram.telegramdesktop asana.asana --force --silent
+asana.asana
+zoom.zoom
+telegram.telegramdesktop
+winget install $item --force --silent
