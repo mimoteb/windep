@@ -1,6 +1,6 @@
 $repo = 'https://github.com/mimoteb/windep/archive/refs/heads/main.zip'
 $repo_OutFile = "$env:TEMP\windep-main.zip"
-$extractedPath = "$env:TEMP\windep-main"
+$extractedPath = "$env:TEMP"
 
 try {
     Write-Host "Downloading from $repo"
