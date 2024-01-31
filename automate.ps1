@@ -33,4 +33,4 @@ foreach ($script in $scripts) {
 }
 
 
-write-Host 'finished'
+Write-Host 'Restart the computer'
