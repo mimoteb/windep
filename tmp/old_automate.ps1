@@ -1,7 +1,5 @@
 # fetch the files from github repo and then execute them
 
-#Paths
-
 
 write-host 'Turning on hibernation'
 powercfg /hibernate on

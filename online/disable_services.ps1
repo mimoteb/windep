@@ -17,5 +17,5 @@ foreach ($item in $items)
         Set-Service -Name $item -StartupType 'Disabled' -ErrorAction SilentlyContinue
         sc config $item start=disabled
     }
-    catch    {  }
+    catch{  }
 }
