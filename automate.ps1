@@ -24,9 +24,9 @@ finally {
 }
 $current_directory = Get-Location
 write-host $current_directory
+
 # this will be the main script
-$scripts = 'from a list of files'
-$scripts = Get-ChildItem -path .\online\*.ps1
+$scripts = Get-ChildItem -path "$env:TEMP\windep-main\online\*.ps1"
 foreach ($script in $scripts) {
     write-host 'Executing:' $script
     Start-Process powershell -ArgumentList "-ExecutionPolicy Bypass -File $script" -Wait
