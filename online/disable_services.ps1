@@ -18,3 +18,4 @@ foreach ($Service in $Services)
     # }
     # catch    {  }
 }
+read-host 'finished disabling services'
