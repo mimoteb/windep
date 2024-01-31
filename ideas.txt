@@ -3,4 +3,3 @@
 - online and offline repos?
 git config user.name "User Name"
 git config user.email "mail@domain.com"
-test
