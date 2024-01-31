@@ -25,3 +25,4 @@ finally {
 # this will be the main script
 $scriptPath = 'from a list of files'
 Start-Process powershell -ArgumentList "-ExecutionPolicy Bypass -File $scriptPath" -Wait
+Read-Host 'finished'
