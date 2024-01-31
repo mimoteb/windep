@@ -3,7 +3,6 @@ $Services = Get-Content -Path .\lists\services.lst
 
 foreach ($Service in $Services)
 {
-    write-host $Service
     try 
     {
         write-host 'Stopping' $service
