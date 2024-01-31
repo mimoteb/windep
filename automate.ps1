@@ -1,8 +1,8 @@
 $repo = 'https://github.com/mimoteb/windep/archive/refs/heads/main.zip'
 $repo_OutFile = "$env:TEMP\windep-main.zip"
 $extractedPath = "$env:TEMP"
-$current_directory = set-location -Path "$env:TEMP\windep-main"
-Write-Host "Current Directory: $($PWD.Path)"
+
+
 try {
     Write-Host "Downloading from $repo"
     Write-Host "Downloading to $repo_OutFile"
@@ -22,8 +22,8 @@ finally {
     # Cleanup: Remove the downloaded zip file
     Remove-Item -Path $repo_OutFile -ErrorAction SilentlyContinue
 }
-$current_directory = Get-Location
-write-host $current_directory
+set-location -Path "$env:TEMP\windep-main"
+Write-Host "Current Directory: $($PWD.Path)"
 
 # this will be the main script
 $scripts = Get-ChildItem -path "$env:TEMP\windep-main\online\*.ps1"
