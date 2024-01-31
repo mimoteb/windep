@@ -21,3 +21,6 @@ finally {
     # Cleanup: Remove the downloaded zip file
     Remove-Item -Path $repo_OutFile -ErrorAction SilentlyContinue
 }
+
+# this will be the main script
+Start-Process powershell -ArgumentList "-ExecutionPolicy Bypass -File $scriptPath" -Wait
