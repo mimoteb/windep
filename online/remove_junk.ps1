@@ -19,3 +19,10 @@ Remove-Item -Path ${env:localappdata}\Microsoft\Edge\'User Data'\Default\Cache -
 Remove-Item -Path ${env:localappdata}\CrashDumps -Recurse -Force -ErrorAction SilentlyContinue
 Remove-Item -Path ${env:appdata}\'Foxit Software'\Addon\'Foxit PhantomPDF'\Install -Recurse -Force -ErrorAction SilentlyContinue
 Remove-Item -Path ${env:localappdata}\SOUND_FORGE_Audio_Studio_15.0.0.46_x86.exe -Recurse -Force -ErrorAction SilentlyContinue
+
+# cmd sytle
+echo removing junk files
+DEL /F /S /Q /A %LocalAppData%\Microsoft\Windows\Explorer\thumbcache_*.db
+del /F /Q %APPDATA%\Microsoft\Windows\Recent\*
+del /F /Q %APPDATA%\Microsoft\Windows\Recent\AutomaticDestinations\*
+del /F /Q %APPDATA%\Microsoft\Windows\Recent\CustomDestinations\*
