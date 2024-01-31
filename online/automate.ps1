@@ -1,7 +1,5 @@
-write-host 'calling powershell'
-powershell
 $repo = 'https://github.com/mimoteb/windep/archive/refs/heads/main.zip'
-$repo_OutFile = '$env:TEMP\windep-main.zip'
+$repo_OutFile = "$env:TEMP\windep-main.zip"
 write-host 'Downloading from' $repo
 write-host 'downloading to' $repo_OutFile
 Invoke-WebRequest -Uri $repo -OutFile $repo_OutFile
