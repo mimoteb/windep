@@ -33,4 +33,4 @@ foreach ($script in $scripts) {
 }
 
 
-Read-Host 'finished'
+write-Host 'finished'
