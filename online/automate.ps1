@@ -1,3 +1,4 @@
+powershell
 $repo = 'https://github.com/mimoteb/windep/archive/refs/heads/main.zip'
 $repo_OutFile = '$env:TEMP\windep-main.zip'
 write-host 'Downloading from' $repo
