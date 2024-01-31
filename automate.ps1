@@ -1,7 +1,7 @@
 $repo = 'https://github.com/mimoteb/windep/archive/refs/heads/main.zip'
 $repo_OutFile = "$env:TEMP\windep-main.zip"
 $extractedPath = "$env:TEMP"
-
+Set-Location -Path $extractedPath
 try {
     Write-Host "Downloading from $repo"
     Write-Host "Downloading to $repo_OutFile"
@@ -11,7 +11,7 @@ try {
     Expand-Archive -Path $repo_OutFile -DestinationPath $extractedPath -ErrorAction Stop
 
     Write-Host "Changing the current directory to $extractedPath"
-    Set-Location -Path $extractedPath
+    
 }
 catch {
     Write-Host "An error occurred: $_" -ForegroundColor Red
@@ -21,9 +21,14 @@ finally {
     # Cleanup: Remove the downloaded zip file
     Remove-Item -Path $repo_OutFile -ErrorAction SilentlyContinue
 }
-
+write-host Get-Location -passtru
 # this will be the main script
-$scriptPath = 'from a list of files'
-Start-Process powershell -ArgumentList "-ExecutionPolicy Bypass -File $scriptPath" -Wait
-write-host Get-Location
+$scripts = 'from a list of files'
+$scripts = Get-ChildItem -path .\online\*.ps1
+foreach ($script in $scripts) {
+    write-host 'Executing:' $script
+    Start-Process powershell -ArgumentList "-ExecutionPolicy Bypass -File $script" -Wait
+}
+
+
 Read-Host 'finished'
