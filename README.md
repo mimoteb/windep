@@ -1,2 +1,2 @@
 # windep-static
-This repo contains static files for windows deployment.
+Windows-related scripts mainly for automation like Windows Deployment, Apps installation, configuration of Windows Systems.

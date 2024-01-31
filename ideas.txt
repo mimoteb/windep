@@ -1,0 +1,6 @@
+- create a directory for all the files in the project in temp directory and call it base
+- download the apps to windows temp directory and install them from there
+- online and offline repos?
+git config user.name "User Name"
+git config user.email "mail@domain.com"
+test
