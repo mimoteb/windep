@@ -2,6 +2,7 @@ $repo = 'https://github.com/mimoteb/windep/archive/refs/heads/main.zip'
 $repo_OutFile = "$env:TEMP\windep-main.zip"
 $extractedPath = "$env:TEMP"
 $current_directory = set-location -Path "$env:TEMP\windep-main"  -PassThru
+write-host 'current_directory' $current_directory
 try {
     Write-Host "Downloading from $repo"
     Write-Host "Downloading to $repo_OutFile"
