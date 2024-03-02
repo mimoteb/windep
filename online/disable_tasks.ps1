@@ -16,7 +16,7 @@ Get-Content $items | ForEach-Object {
         Disable-ScheduledTask -TaskPath $taskPath -TaskName $taskName
     }
     else {
-        Write-Host "Invalid line: $_"
+        Write-Host "[ERROR] Invalid line: $_" -ForegroundColor Red
     }
 
 }
