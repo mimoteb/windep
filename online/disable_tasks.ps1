@@ -1,8 +1,8 @@
 write-host 'Disabling Tasks'
-$TaskListPath = ".\lists\tasks.lst"
-
+$tempPath = [System.IO.Path]::Combine($env:TEMP, 'windep-main\lists\tasks.lst')
+$items = Get-Content -Path $tempPath
 # Read the file line by line
-Get-Content $TaskListPath | ForEach-Object {
+Get-Content $items | ForEach-Object {
     # Split each line into path and task name using "\" as the delimiter
     $parts = $_.Trim() -split "\\"
 
