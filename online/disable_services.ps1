@@ -1,5 +1,5 @@
 write-host 'Disabling services/ stopping them temporarily'
-$items = Get-Content -Path .\lists\services.lst
+$items = Get-Content -Path ..\lists\services.lst
 
 foreach ($item in $items)
 {
