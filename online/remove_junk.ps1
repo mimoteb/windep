@@ -10,12 +10,15 @@ Clear-RecycleBin -Force -Confirm:$false -ErrorAction Continue
 # Remove files
 
 foreach($item in $junk_files){
+    Write-Host '[File] Removing Junk at:' $item -ForegroundColor Cyan
     try {Remove-Item -Path $item -Recurse -Force -ErrorAction SilentlyContinue} catch {<#Do this if a terminating exception happens#>}
 }
 
 # Remove directories
 
-foreach($item in $junkdir_list){Remove-Item -Path $item -Recurse -Force -ErrorAction SilentlyContinue -Confirm:$false}
+foreach($item in $junkdir_list){
+    Write-Host '[Directory] Removing Junk at:' $item -ForegroundColor Cyan
+    Remove-Item -Path $item -Recurse -Force -ErrorAction SilentlyContinue -Confirm:$false}
 
 
 Remove-Item -Path $env:TEMP -Recurse -Force -ErrorAction Continue -Confirm:$false
