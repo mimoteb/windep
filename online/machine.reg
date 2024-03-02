@@ -91,3 +91,48 @@ Windows Registry Editor Version 5.00
 "AUOptions"=dword:00000001
 "ScheduledInstallDay"=dword:00000000
 "ScheduledInstallTime"=dword:00000003
+
+; Disable Defrag BootOptimizeFunction
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Dfrg\BootOptimizeFunction]
+"Enable"="N"
+
+; Disable Background Layout Service
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OptimalLayout]
+"EnableAutoLayout"=dword:00000000
+
+; Disable Last Access Timestamp
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem]
+"NtfsDisableLastAccessUpdate"=dword:00000001
+
+; Reduce DedicatedDumpFile DumpFileSize to 2MB
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\CrashControl]
+"DumpFileSize"=dword:00000002
+"IgnorePagefileSize"=dword:00000001
+
+; Disable Indexing Service
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\cisvc]
+"Start"=dword:00000004
+
+; Reduce Event Log Size to 64k
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Eventlog\Application]
+"MaxSize"=dword:00010000   
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Eventlog\Security]
+"MaxSize"=dword:00010000
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Eventlog\System]
+"MaxSize"=dword:00010000
+
+; Reduce Internet Explorer Temp File
+[HKEY_USERS\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Internet Settings\5.0\Cache\Content]
+"CacheLimit"=dword:00000400
+[HKEY_USERS\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Cache\Content]
+"CacheLimit"=dword:00000400
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\Cache\Paths]
+"Paths"=dword:00000004
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\Cache\Paths\path1]
+"CacheLimit"=dword:00000100
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\Cache\Paths\path2]
+"CacheLimit"=dword:00000100
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\Cache\Paths\path3]
+"CacheLimit"=dword:00000100
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\Cache\Paths\path4]
+"CacheLimit"=dword:00000100
