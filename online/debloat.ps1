@@ -17,7 +17,7 @@ foreach ($item in $items) {
     # }
 
     try {
-        #Remove-AppxProvisionedPackage -package $item -Online -ErrorAction SilentlyContinue
+        Remove-AppxProvisionedPackage -package $item -Online -ErrorAction SilentlyContinue
         Write-Host "[Success] removed provisioned package: $item" -ForegroundColor Green
     } catch {
         Write-Host "[Error]: Failed to remove $item - $_" -ForegroundColor Red
