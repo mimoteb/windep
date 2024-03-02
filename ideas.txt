@@ -13,6 +13,8 @@ compact /CompactOS:always
 
 https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/compact-os?view=windows-11
 
+ShellExView and disable uncessary shell extensions
+
 change program associations
 # Change Program Association
 Write-Host "Changing Program Association..."
