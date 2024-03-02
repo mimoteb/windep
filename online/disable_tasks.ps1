@@ -44,3 +44,23 @@ schtasks /Change /TN Microsoft\Windows\DiskFootprint\Diagnostics /Disable | Out-
 schtasks /Change /TN Microsoft\Windows\Feedback\Siuf\DmClient /Disable | Out-Null
 schtasks /Change /TN Microsoft\Windows\NetTrace\GatherNetworkInfo /Disable | Out-Null
 schtasks /Change /TN Microsoft\Windows\Windows Error Reporting\QueueReporting /Disable | Out-Null
+
+Write-Host "Disabling Scheduled Tasks..."
+Disable-ScheduledTask -TaskName "\Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser"
+Disable-ScheduledTask -TaskName "\Microsoft\Windows\Application Experience\ProgramDataUpdater"
+Disable-ScheduledTask -TaskName "\Microsoft\Windows\Application Experience\StartupAppTask"
+Disable-ScheduledTask -TaskName "\Microsoft\Windows\Customer Experience Improvement Program\Consolidator"
+Disable-ScheduledTask -TaskName "\Microsoft\Windows\Customer Experience Improvement Program\UsbCeip"
+Disable-ScheduledTask -TaskName "\Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticResolver"
+Disable-ScheduledTask -TaskName "\Microsoft\Windows\Maps\MapsToastTask"
+Disable-ScheduledTask -TaskName "\Microsoft\Windows\Maps\MapsUpdateTask"
+Disable-ScheduledTask -TaskName "\Microsoft\Windows\Shell\FamilySafetyMonitor"
+Disable-ScheduledTask -TaskName "\Microsoft\Windows\WDI\ResolutionHost"
+Disable-ScheduledTask -TaskName "\Microsoft\Windows\Windows Media Sharing\UpdateLibrary"
+Disable-ScheduledTask -TaskName "\Microsoft\Windows\Autochk\Proxy"
+Disable-ScheduledTask -TaskName "\Microsoft\Windows\CloudExperienceHost\CreateObjectTask"
+Disable-ScheduledTask -TaskName "\Microsoft\Windows\Feedback\Siuf\DmClient"
+Disable-ScheduledTask -TaskName "\Microsoft\Windows\Feedback\Siuf\DmClientOnScenarioDownload"
+Disable-ScheduledTask -TaskName "\Microsoft\Windows\Shell\FamilySafetyRefreshTask"
+Disable-ScheduledTask -TaskName "\Microsoft\Windows\Windows Error Reporting\QueueReporting"
+Disable-ScheduledTask -TaskName "\Microsoft\XblGameSave\XblGameSaveTask"
