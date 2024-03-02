@@ -79,3 +79,4 @@ Windows Registry Editor Version 5.00
 ; Disable automatic optimization for SSD
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OptimalLayout]
 "A0G0OptimizationEnabled"=dword:00000000
+
