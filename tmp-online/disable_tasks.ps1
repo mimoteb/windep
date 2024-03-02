@@ -34,3 +34,13 @@ $tasks = @(
 foreach ($task in $tasks) {
 	schtasks /Change /TN $task /Disable | Out-Null
 }
+
+
+# Disable Unneeded Scheduled Tasks
+Write-Host "Disabling Unneeded Scheduled Tasks..."
+schtasks /Change /TN Microsoft\Windows\CloudExperienceHost\CreateObjectTask /Disable | Out-Null
+schtasks /Change /TN Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector /Disable | Out-Null
+schtasks /Change /TN Microsoft\Windows\DiskFootprint\Diagnostics /Disable | Out-Null
+schtasks /Change /TN Microsoft\Windows\Feedback\Siuf\DmClient /Disable | Out-Null
+schtasks /Change /TN Microsoft\Windows\NetTrace\GatherNetworkInfo /Disable | Out-Null
+schtasks /Change /TN Microsoft\Windows\Windows Error Reporting\QueueReporting /Disable | Out-Null

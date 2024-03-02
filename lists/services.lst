@@ -25,3 +25,6 @@ XblGameSave
 XblAuthManager
 XboxGipSvc
 WSearch
+NetTcpPortSharing
+RemoteAccess
+TrkWks
