@@ -1,3 +1,4 @@
 remove ContextMenuHandlers\Sharing
 remove open with iexplorer.exe and wordpad from hkey_classes_root\*\openwithlist
 Remove "Scan with Microsoft Defender" from context menu
+Remove "Troubleshoot compatibility" from context menu

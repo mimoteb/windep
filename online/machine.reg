@@ -59,3 +59,7 @@ Windows Registry Editor Version 5.00
 
 ; Remove "Scan with Microsoft Defender" from context menu
 [-HKEY_CLASSES_ROOT\*\shellex\ContextMenuHandlers\EPP]
+
+; Remove "Troubleshoot compatibility" from context menu
+[-HKEY_CLASSES_ROOT\*\shellex\ContextMenuHandlers\Compatibility]
+
