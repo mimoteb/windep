@@ -7,8 +7,6 @@ $items = Get-Content -Path $tempPath
 foreach ($item in $items) {
     $item = $item.Trim()
 
-    
-
     try {
         Write-Host "[AppxPackag] Removing: $item" -ForegroundColor Cyan
         Remove-AppxPackage -Package $item -AllUsers -ErrorAction Stop
@@ -19,7 +17,7 @@ foreach ($item in $items) {
 
     try {
         Write-Host "[AppxProvisionedPackage] Removing: $item" -ForegroundColor Cyan
-        Remove-AppxProvisionedPackage -PackageName $item -Online -ErrorAction Stop
+        Remove-AppxProvisionedPackage -package $item -Online -ErrorAction Stop
         Write-Host "Successfully removed provisioned package: $item" -ForegroundColor Green
     } catch {
         Write-Host "[Error]: Failed to remove $item - $_" -ForegroundColor Red
