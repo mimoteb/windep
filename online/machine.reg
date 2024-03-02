@@ -56,3 +56,6 @@ Windows Registry Editor Version 5.00
 
 ; Remove association with WordPad
 [-HKEY_CLASSES_ROOT\*\OpenWithList\WordPad.exe]
+
+; Remove "Scan with Microsoft Defender" from context menu
+[-HKEY_CLASSES_ROOT\*\shellex\ContextMenuHandlers\EPP]
