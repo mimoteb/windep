@@ -28,7 +28,7 @@ Write-Host "Current Directory: $($PWD.Path)" -foregroundcolor yellow
 
 # this will be the main script
 $scripts = Get-ChildItem -path "$env:TEMP\windep-main\online\*.ps1"  | Sort-Object
-$logFilePath = "C:\Path\To\Your\LogFile.txt"
+$logFilePath = "$env:TEMP\windep.log"
 
 foreach ($script in $scripts) {
     Write-Host "[Executing] : $script" -ForegroundColor Cyan
