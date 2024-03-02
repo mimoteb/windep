@@ -50,3 +50,9 @@ Windows Registry Editor Version 5.00
 ; Remove "Share with" from context menu
 [-HKEY_CLASSES_ROOT\*\shellex\ContextMenuHandlers\Sharing]
 [-HKEY_CLASSES_ROOT\*\shellex\ContextMenuHandlers\ModernSharing]
+
+; Remove association with Internet Explorer
+[-HKEY_CLASSES_ROOT\*\OpenWithList\IExplore.exe]
+
+; Remove association with WordPad
+[-HKEY_CLASSES_ROOT\*\OpenWithList\WordPad.exe]
