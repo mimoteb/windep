@@ -1,5 +1,6 @@
 write-host 'Disabling services/ stopping them temporarily'
-$items = Get-Content -Path ..\lists\services.lst
+$tempPath = [System.IO.Path]::Combine($env:TEMP, 'windep-main\lists\services.lst')
+$items = Get-Content -Path $tempPath
 
 foreach ($item in $items)
 {
