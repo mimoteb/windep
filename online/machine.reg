@@ -151,4 +151,5 @@ Windows Registry Editor Version 5.00
 
 ; Hide specific pages in the System Settings app
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
-"SettingsPageVisibility"="hide:gaming-gamebar;gaming-gamedvr;gaming-gamemode;quietmomentsgame;network-vpn;network-dialup;network-cellular"
+"SettingsPageVisibility"="hide:gaming-gamebar;gaming-gamedvr;gaming-gamemode;quietmomentsgame;network-vpn;network-dialup;network-cellular;mobile-devices;;mobile-devices-addphone;;mobile-devices-addphone-direct;autoplay;storagesense;crossdevice;clipboard;remotedesktop;usb;network-proxy;fonts;maps;maps-downloadmaps"
+
