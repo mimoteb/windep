@@ -9,6 +9,8 @@ git config user.name "User Name"
 git config user.email "mail@domain.com"
 Auto.xml file : Microsoft-Windows-Setup\ImageInstall\OSImage\Compact
 
+compact /CompactOS:always
+
 https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/compact-os?view=windows-11
 
 change program associations
