@@ -1,0 +1,16 @@
+# Disable Telemetry for Default User
+Write-Host "[REG] Disabling Telemetry for Default User" -ForegroundColor Cyan
+
+# Set-ItemProperty for Default User (HKEY_USERS\.Default)
+$defaultUserPath = "Registry::HKEY_USERS\.Default\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection"
+Set-ItemProperty -Path $defaultUserPath -Name "AllowTelemetry" -Type DWord -Value 0
+
+# Additional paths if needed
+$additionalPaths = @(
+    "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection",
+    "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\DataCollection"
+)
+
+foreach ($path in $additionalPaths) {
+    Set-ItemProperty -Path $path -Name "AllowTelemetry" -Type DWord -Value 0
+}
