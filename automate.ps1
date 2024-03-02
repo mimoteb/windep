@@ -27,18 +27,22 @@ set-location -Path "$env:TEMP\windep-main"
 Write-Host "Current Directory: $($PWD.Path)" -foregroundcolor yellow
 
 # this will be the main script
-$scripts = Get-ChildItem -path "$env:TEMP\windep-main\online\*.ps1"  | Sort-Object
+$scripts = Get-ChildItem -Path "$env:TEMP\windep-main\online\*.ps1" | Sort-Object
 $logFilePath = "$env:TEMP\windep.log"
 
 foreach ($script in $scripts) {
-    Write-Host "[Executing] : $script" -ForegroundColor Cyan
+    Write-Host "[Executing] : $($script.FullName)" -ForegroundColor Cyan
 
-    $process = Start-Process powershell -ArgumentList "-ExecutionPolicy Bypass -File $script" -PassThru -Wait
-
-    if ($process.ExitCode -eq 0) {
-        "Script $($script.FullName) executed successfully" | Out-File -Append -LiteralPath $logFilePath
-    } else {
-        "Error executing script $($script.FullName). Exit code: $($process.ExitCode)" | Out-File -Append -LiteralPath $logFilePath
+    try {
+        $output = Invoke-Expression -Command "powershell -ExecutionPolicy Bypass -File $($script.FullName) 2>&1"
+        $output | Out-File -Append -LiteralPath $logFilePath
+        Write-Host "[Success] : $($script.FullName)" -ForegroundColor Green
+    } catch {
+        $errorMessage = "Error executing script $($script.FullName). Error message: $_"
+        $errorMessage | Out-File -Append -LiteralPath $logFilePath
+        Write-Host "[Error] : $($script.FullName)" -ForegroundColor Red
+        Write-Host $errorMessage -ForegroundColor Red
     }
 }
+
 Write-Host 'Restart the computer'
