@@ -1,15 +1,20 @@
 write-host 'removing junk files and directories'
+$junk_files = [System.IO.Path]::Combine($env:TEMP, 'windep-main\lists\files.lst')
+$junk_files = Get-Content -Path $tempPath
+
+$junkdir_list = [System.IO.Path]::Combine($env:TEMP, 'windep-main\lists\directories.lst')
+$junkdir_list = Get-Content -Path $tempPath
 
 Clear-RecycleBin -Force -Confirm:$false -ErrorAction Continue
 
 # Remove files
-$junk_files = Get-Content -Path ..\lists\files.lst
+
 foreach($junk_file in $junk_files){
     try {Remove-Item -Path $junk_file -Recurse -Force -ErrorAction SilentlyContinue} catch {<#Do this if a terminating exception happens#>}
 }
 
 # Remove directories
-$junkdir_list = Get-Content -Path .\lists\directories.lst
+
 foreach($junkdir in $junkdir_list){Remove-Item -Path $junkdir -Recurse -Force -ErrorAction SilentlyContinue -Confirm:$false}
 
 
