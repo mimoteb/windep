@@ -1,0 +1,11 @@
+Windows Registry Editor Version 5.00
+
+; Remove 3D Objects from File Explorer Navigation Pane
+
+[HKEY_CLASSES_ROOT\CLSID\{596AB062-B4D2-4215-9F74-E9109B0A8153}]
+; This key represents the 3D Objects folder in the File Explorer navigation pane.
+; Deleting it will remove the 3D Objects entry.
+
+[-HKEY_CLASSES_ROOT\CLSID\{596AB062-B4D2-4215-9F74-E9109B0A8153}]
+; The '-' before HKEY_CLASSES_ROOT means delete this key and all its subkeys.
+; This removes the entire 3D Objects key, including any settings associated with it.
