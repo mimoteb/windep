@@ -11,7 +11,7 @@ foreach ($item in $items) {
         Write-Host "[AppxPackag] Removing: $item" -ForegroundColor Cyan
         #Get-AppxPackage -all *$item* | Remove-AppxPackage -AllUsers -ErrorAction SilentlyContinue
 
-        Remove-AppxPackage -Package $item -AllUsers -ErrorAction Stop
+        Remove-AppxPackage -Package $item -AllUsers -ErrorAction SilentlyContinue
         Write-Host "Successfully removed package: $item" -ForegroundColor Green
     } catch {
         Write-Host "[Error]: Failed to remove $item - $_" -ForegroundColor Red
@@ -19,7 +19,7 @@ foreach ($item in $items) {
 
     try {
         Write-Host "[AppxProvisionedPackage] Removing: $item" -ForegroundColor Cyan
-        #Remove-AppxProvisionedPackage -package $item -Online -ErrorAction Stop
+        #Remove-AppxProvisionedPackage -package $item -Online -ErrorAction SilentlyContinue
         Write-Host "Successfully removed provisioned package: $item" -ForegroundColor Green
     } catch {
         Write-Host "[Error]: Failed to remove $item - $_" -ForegroundColor Red
