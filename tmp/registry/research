@@ -1,3 +1,4 @@
+# https://admx.help/
 # Disable Telemetry for Default User
 Write-Host "[REG] Disabling Telemetry for Default User" -ForegroundColor Cyan
 
