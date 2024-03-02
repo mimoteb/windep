@@ -72,3 +72,6 @@ Windows Registry Editor Version 5.00
 
 ; Remove "Restore previous versions" from context menu
 [-HKEY_CLASSES_ROOT\AllFilesystemObjects\shellex\ContextMenuHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}]
+
+; Remove "Previous Versions" tab from Properties
+[-HKEY_CLASSES_ROOT\AllFilesystemObjects\shellex\PropertySheetHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}]
