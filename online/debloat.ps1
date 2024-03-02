@@ -9,7 +9,7 @@ foreach ($item in $items) {
 
     try {
         Write-Host "[AppxPackag] Removing: $item" -ForegroundColor Cyan
-        #Get-AppxPackage -all *$item* | Remove-AppxPackage -AllUsers -ErrorAction SilentlyContinue
+        Get-AppxPackage -all *$item* | Remove-AppxPackage -AllUsers -ErrorAction SilentlyContinue
 
         # WRONG: Remove-AppxPackage -Package $item -AllUsers -ErrorAction SilentlyContinue
         Write-Host "Successfully removed package: $item" -ForegroundColor Green
