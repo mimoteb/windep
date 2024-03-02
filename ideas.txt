@@ -7,3 +7,58 @@ the rest is handled by automate.ps1
 - online and offline repos?
 git config user.name "User Name"
 git config user.email "mail@domain.com"
+
+change program associations
+# Change Program Association
+Write-Host "Changing Program Association..."
+$filePath = "C:\Users\$env:username\Desktop\AppAssociations.xml"
+$XmlWriter = New-Object System.XMl.XmlTextWriter($filePath,$Null)
+$XmlWriter.Formatting = "Indented"
+$XmlWriter.Indentation = "2"
+$XmlWriter.WriteStartDocument()
+$XmlWriter.WriteStartElement("DefaultAssociations")
+$XmlWriter.WriteStartElement("Association")  
+$XmlWriter.WriteAttributeString("Identifier", ".htm")
+$XmlWriter.WriteAttributeString("ProgId", "ChromeHTML")
+$XmlWriter.WriteAttributeString("ApplicationName", "Google Chrome")
+$XmlWriter.WriteEndElement()
+$XmlWriter.WriteStartElement("Association")  
+$XmlWriter.WriteAttributeString("Identifier", ".html")
+$XmlWriter.WriteAttributeString("ProgId", "ChromeHTML")
+$XmlWriter.WriteAttributeString("ApplicationName", "Google Chrome")
+$XmlWriter.WriteEndElement()
+$XmlWriter.WriteStartElement("Association")  
+$XmlWriter.WriteAttributeString("Identifier", "http")
+$XmlWriter.WriteAttributeString("ProgId", "ChromeHTML")
+$XmlWriter.WriteAttributeString("ApplicationName", "Google Chrome")
+$XmlWriter.WriteEndElement()
+$XmlWriter.WriteStartElement("Association")  
+$XmlWriter.WriteAttributeString("Identifier", "https")
+$XmlWriter.WriteAttributeString("ProgId", "ChromeHTML")
+$XmlWriter.WriteAttributeString("ApplicationName", "Google Chrome")
+$XmlWriter.WriteEndElement()
+$XmlWriter.WriteStartElement("Association")  
+$XmlWriter.WriteAttributeString("Identifier", ".htm")
+$XmlWriter.WriteAttributeString("ProgId", "ChromeHTML")
+$XmlWriter.WriteAttributeString("ApplicationName", "Google Chrome")
+$XmlWriter.WriteEndElement()
+$XmlWriter.WriteStartElement("Association")  
+$XmlWriter.WriteAttributeString("Identifier", ".jpg")
+$XmlWriter.WriteAttributeString("ProgId", "IrfanView.jpg")
+$XmlWriter.WriteAttributeString("ApplicationName", "IrfanView 32-bit")
+$XmlWriter.WriteEndElement()
+$XmlWriter.WriteStartElement("Association")  
+$XmlWriter.WriteAttributeString("Identifier", ".png")
+$XmlWriter.WriteAttributeString("ProgId", "IrfanView.png")
+$XmlWriter.WriteAttributeString("ApplicationName", "IrfanView 32-bit")
+$XmlWriter.WriteEndElement()
+$XmlWriter.WriteStartElement("Association")  
+$XmlWriter.WriteAttributeString("Identifier", ".txt")
+$XmlWriter.WriteAttributeString("ProgId", "Applications\notepad++.exe")
+$XmlWriter.WriteAttributeString("ApplicationName", "Notepad++ : a free (GNU) source code editor")
+$XmlWriter.WriteEndElement()
+$XmlWriter.WriteEndDocument()
+$XmlWriter.Flush()
+$XmlWriter.Close()
+Dism.exe /Online /Import-DefaultAppAssociations:C:\Users\$env:username\Desktop\AppAssociations.xml  2>&1 | Out-Null
+Remove-Item C:\Users\$env:username\Desktop\AppAssociations.xml
