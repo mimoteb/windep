@@ -63,3 +63,5 @@ Windows Registry Editor Version 5.00
 ; Remove "Troubleshoot compatibility" from context menu
 [-HKEY_CLASSES_ROOT\*\shellex\ContextMenuHandlers\Compatibility]
 
+; Remove "Troubleshoot compatibility" from context menu for executable files
+[-HKEY_CLASSES_ROOT\exefile\shellex\ContextMenuHandlers\Compatibility]
