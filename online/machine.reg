@@ -43,3 +43,6 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search]
 "AllowCortana"=dword:00000000
 "DisableWebSearch"=dword:00000001
+
+; Remove 3D Objects from File Explorer Navigation Pane
+[-HKEY_CLASSES_ROOT\CLSID\{596AB062-B4D2-4215-9F74-E9109B0A8153}]
