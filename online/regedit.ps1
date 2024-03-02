@@ -180,3 +180,28 @@ If (!(Test-Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\GameDVR")) {
 }
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\GameDVR" -Name "AllowGameDVR" -Type DWord -Value 0
 Set-ItemProperty -Path "HKCU:\System\GameConfigStore" -Name "GameDVR_Enabled" -Type DWord -Value 0
+
+
+#disable Bing Search from Windows 11 Start Menu
+Set-ItemProperty 'HKCU:\Software\Policies\Microsoft\Windows' -Name 'DisableSearchBoxSuggestions' -Value '0'
+
+#disable Microsoft OneDrive in Explorer
+Set-ItemProperty 'HKCR:\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}' -Name 'System.IsPinnedToNameSpaceTree' -Value '0'
+
+#disable User Libraries Directory in Explorer
+Set-ItemProperty 'HKCR:\CLSID\{031E4825-7B94-4dc3-B131-E946B44C8DD5}' -Name 'System.IsPinnedToNameSpaceTree' -Value '0'
+
+#Disable Photos Directory in Explorer
+Set-ItemProperty 'HKCR:\CLSID\{24ad3ad4-a569-4530-98e1-ab02f9417aa8}' -Name 'System.IsPinnedToNameSpaceTree' -Value '0'
+
+#Disable Music Directory in Explorer
+Set-ItemProperty 'HKCR:\CLSID\{3dfdf296-dbec-4fb4-81d1-6a3438bcf4de}' -Name 'System.IsPinnedToNameSpaceTree' -Value '0'
+ 
+#Disable Videos Directory in Explorer
+Set-ItemProperty 'HKCR:\CLSID\{f86fa3ab-70d2-4fc7-9c99-fcbf05467f3a}' -Name 'System.IsPinnedToNameSpaceTree' -Value '0'
+
+#disable Mouse Enhanced Pointer precision
+Set-ItemProperty 'HKCU:\Control Panel\Mouse' -Name 'MouseSpeed' -Value '0'
+Set-ItemProperty 'HKCU:\Control Panel\Mouse' -Name 'MouseThreshold1' -Value '0'
+Set-ItemProperty 'HKCU:\Control Panel\Mouse' -Name 'MouseThreshold2' -Value '0'
+
