@@ -7,7 +7,7 @@ the rest is handled by automate.ps1
 - online and offline repos?
 git config user.name "User Name"
 git config user.email "mail@domain.com"
-
+Auto.xml file : Microsoft-Windows-Setup\ImageInstall\OSImage\Compact
 change program associations
 # Change Program Association
 Write-Host "Changing Program Association..."
