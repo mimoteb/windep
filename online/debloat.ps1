@@ -27,7 +27,7 @@ foreach ($item in $items) {
 }
 
 
-Write-Host 'removing windows capabilities'
+Write-Host '[Info] removing windows capabilities' -ForegroundColor Yellow
 $tempPath = [System.IO.Path]::Combine($env:TEMP, 'windep-main\lists\capabilities.lst')
 $items = Get-Content -Path $tempPath
 foreach ($item in $items) {
@@ -42,7 +42,7 @@ foreach($item in $items){
     Remove-AppxProvisionedPackage -PackageName $item.Trim() -Online -Verbose -ErrorAction SilentlyContinue
 }
 
-Write-Host 'Processing Optional Features list...'
+Write-Host '[Info] Processing Optional Features list...' -ForegroundColor Yellow
 $tempPath = [System.IO.Path]::Combine($env:TEMP, 'windep-main\lists\features.lst')
 foreach ($item in $bloatware) {
         try {Disable-WindowsOptionalFeature -Online -FeatureName $item.Trim() -ErrorAction SilentlyContinue} catch {}
