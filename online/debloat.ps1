@@ -1,13 +1,31 @@
 write-host '[Info] removing bloatwares' -ForegroundColor Yellow
 
-Write-Host 'removing AppxPackage'
+Write-Host '[Info] Removing AppxPackages' -ForegroundColor Yellow
 $tempPath = [System.IO.Path]::Combine($env:TEMP, 'windep-main\lists\AppxPackage.lst')
 $items = Get-Content -Path $tempPath
+
 foreach ($item in $items) {
-    Write-Host 'Removing:'$item
-    Remove-AppxPackage -Package $item.Trim() -AllUsers -Verbose -ErrorAction SilentlyContinue
-    Remove-AppxProvisionedPackage -PackageName $item.Trim() -Online -Verbose -ErrorAction SilentlyContinue
+    $item = $item.Trim()
+
+    
+
+    try {
+        Write-Host "[AppxPackag] Removing: $item" -ForegroundColor Cyan
+        Remove-AppxPackage -Package $item -AllUsers -ErrorAction Stop
+        Write-Host "Successfully removed package: $item" -ForegroundColor Green
+    } catch {
+        Write-Host "[Error]: Failed to remove $item - $_" -ForegroundColor Red
+    }
+
+    try {
+        Write-Host "[AppxProvisionedPackage] Removing: $item" -ForegroundColor Cyan
+        Remove-AppxProvisionedPackage -PackageName $item -Online -ErrorAction Stop
+        Write-Host "Successfully removed provisioned package: $item" -ForegroundColor Green
+    } catch {
+        Write-Host "[Error]: Failed to remove $item - $_" -ForegroundColor Red
+    }
 }
+
 
 Write-Host 'removing windows capabilities'
 $tempPath = [System.IO.Path]::Combine($env:TEMP, 'windep-main\lists\capabilities.lst')
