@@ -11,7 +11,7 @@ Get-Content $items | ForEach-Object {
         # Extract the path and task name
         $taskPath = $parts[0..($parts.Length - 2)] -join "\"
         $taskName = $parts[-1]
-
+        Write-Host '[Task] Disabling' $taskName -ForegroundColor Cyan
         # Disable the task using the task path
         Disable-ScheduledTask -TaskPath $taskPath -TaskName $taskName
     }

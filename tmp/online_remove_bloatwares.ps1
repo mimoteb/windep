@@ -1,21 +1,3 @@
-Write-Host 'Disabling Services...'
-#$Bloatwares = Get-Content -Path .\lists\services.lst
-$url = "http://mimoteb.synology.me/windows/deployment/lists/services.lst"
-$Bloatwares = ((New-Object System.Net.WebClient).DownloadString($url))
-foreach ($item in $Bloatwares)
-{
-    try 
-    {
-        Write-Host $item
-        Stop-Service -Name $item -ErrorAction SilentlyContinue
-	}catch{}
-    
-    try
-    {
-        Set-Service -Name $item -StartupType 'Disabled' -ErrorAction SilentlyContinue
-    }catch{}
-}
-
 
 Write-Host 'Disabling Task Scheduler Tasks'
 #$TaskListPath = ".\lists\tasks.lst"
