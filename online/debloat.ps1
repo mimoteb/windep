@@ -17,7 +17,7 @@ foreach ($item in $items) {
     # }
 
     try {
-        Get-AppxProvisionedPackage -Online | Where-Object { $_.PackageName -like $($item) } | Remove-AppxProvisionedPackage -AllUsers -ErrorAction SilentlyContinue
+        Get-AppxProvisionedPackage -Online | Where-Object { $_.PackageName -like "$($item)" } | Remove-AppxProvisionedPackage -AllUsers -ErrorAction SilentlyContinue
 
         Remove-AppxProvisionedPackage -package $item -Online -ErrorAction SilentlyContinue
         Write-Host "[Success] removed provisioned package: $item" -ForegroundColor Green
