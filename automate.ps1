@@ -2,7 +2,6 @@ $repo = 'https://github.com/mimoteb/windep/archive/refs/heads/main.zip'
 $repo_OutFile = "$env:TEMP\windep-main.zip"
 $extractedPath = "$env:TEMP"
 
-
 try {
     Write-Host "Downloading from $repo"
     Write-Host "Downloading to $repo_OutFile"
@@ -31,6 +30,5 @@ foreach ($script in $scripts) {
     write-host 'Executing:' $script
     Start-Process powershell -ArgumentList "-ExecutionPolicy Bypass -File $script" -Wait
 }
-
 
 Write-Host 'Restart the computer'
