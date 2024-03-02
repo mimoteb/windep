@@ -1,0 +1,1 @@
+write-host '[Info] Installing Apps' -ForegroundColor Yellow
