@@ -25,7 +25,7 @@ set-location -Path "$env:TEMP\windep-main"
 Write-Host "Current Directory: $($PWD.Path)"
 
 # this will be the main script
-$scripts = Get-ChildItem -path "$env:TEMP\windep-main\online\*.ps1"
+$scripts = Get-ChildItem -path "$env:TEMP\windep-main\online\*.ps1"  | Sort-Object
 foreach ($script in $scripts) {
     write-host 'Executing:' $script
     Start-Process powershell -ArgumentList "-ExecutionPolicy Bypass -File $script" -Wait
