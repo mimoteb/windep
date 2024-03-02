@@ -1,0 +1,115 @@
+Windows Registry Editor Version 5.00
+
+; Disable Windows animation when minimizing and maximizing
+[HKEY_CURRENT_USER\Control Panel\Desktop\WindowMetrics]
+"MinAnimate"="0"
+
+; This script will disable Cortana
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search]
+"AllowCortana"=dword:00000000
+"AllowSearchToUseLocation"=dword:00000000
+"DisableWebSearch"=dword:00000001
+"ConnectedSearchUseWeb"=dword:00000000
+
+; Disabling diagnostic data collection (Privacy), Disabling feedback notifications
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection]
+"AllowTelemetry"=dword:00000000
+"DoNotShowFeedbackNotifications"=dword:00000001
+
+; Turning off game mode notification
+[HKEY_CURRENT_USER\Software\Microsoft\GameBar]
+"ShowGameModeNotifications"=dword:00000000
+
+; Turning off game bar tips
+[HKEY_CURRENT_USER\Software\Microsoft\GameBar]
+"ShowStartupPanel"=dword:00000000
+
+; Disabling open xbox game bar using xbox button on game controller
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\GameBar]
+"UseNexusForGameBarEnabled"=dword:00000000
+
+; Turning off Gamebar
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR]
+"AppCaptureEnabled"=dword:00000000
+
+[HKEY_CURRENT_USER\System\GameConfigStore]
+"GameDVR_Enabled"=dword:00000000
+
+; Turning off Game mode
+[HKEY_CURRENT_USER\Software\Microsoft\GameBar]
+"AllowAutoGameMode"=dword:00000000
+"AutoGameModeEnabled"=dword:00000000
+
+; Disabling grouping taskbar buttons (Current User)
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"NoTaskGrouping"=dword:00000001
+
+; Disabling grouping taskbar buttons (Local Machine)
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"NoTaskGrouping"=dword:00000001
+
+; Disabling improve inking and typing recognition
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\TextInput]
+"AllowLinguisticDataCollection"=dword:00000000
+
+; Disabling let apps use advertising ID
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo]
+"DisabledByGroupPolicy"=dword:00000001
+
+; Disabling News and interests on taskbar feature for all users
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\NewsAndInterests\AllowNewsAndInterests]
+"value"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Feeds]
+"EnableFeeds"=dword:00000000
+
+; Disabling online speech recognition services
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\InputPersonalization]
+"AllowInputPersonalization"=dword:00000000
+
+; Disabling open news and interests on hover
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Feeds]
+"ShellFeedsTaskbarOpenOnHover"=dword:00000000
+
+; Disabling recent items and frequent places for all users (Current User)
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"NoRecentDocsHistory"=dword:00000001
+
+; Disabling recent items and frequent places for all users (Local Machine)
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"NoRecentDocsHistory"=dword:00000001
+
+; Disabling recently added apps list on startup menu
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer]
+"HideRecentlyAddedApps"=dword:00000001
+
+; Disabling save taskbar thumbnail previews
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\DWM]
+"AlwaysHibernateThumbnails"=dword:00000000
+
+; Disabling scaling
+[-HKEY_CURRENT_USER\Control Panel\Desktop]
+[HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Control Panel\Desktop]
+"EnablePerProcessSystemDPI"=dword:00000000
+[HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Display]
+"EnablePerProcessSystemDPIForProcesses"=""
+"DisablePerProcessSystemDPIForProcesses"=""
+[-HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Control Panel\Desktop]
+[-HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Display]
+
+; Disabling shared experiences
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]
+"EnableCdp"=dword:00000000
+
+
+; Disabling Windows from automatically installing bloatwares in the background
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager]
+"FeatureManagementEnabled"=dword:00000000
+"OemPreInstalledAppsEnabled"=dword:00000000
+"PreInstalledAppsEnabled"=dword:00000000
+"SilentInstalledAppsEnabled"=dword:00000000
+"SoftLandingEnabled"=dword:00000000
+"SystemPaneSuggestionsEnabled"=dword:00000000
+"SlideshowEnabled"=dword:00000000
+"RotatingLockScreenEnabled"=dword:00000001
+"RotatingLockScreenOverlayEnabled"
