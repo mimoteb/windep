@@ -69,3 +69,6 @@ Windows Registry Editor Version 5.00
 ; Disable Online Tips in Explorer
 [HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer]
 "AllowOnlineTips"=dword:00000000
+
+; Remove "Restore previous versions" from context menu
+[-HKEY_CLASSES_ROOT\AllFilesystemObjects\shellex\ContextMenuHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}]
