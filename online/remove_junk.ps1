@@ -3,7 +3,7 @@ write-host 'removing junk files and directories'
 Clear-RecycleBin -Force -Confirm:$false -ErrorAction Continue
 
 # Remove files
-$junk_files = Get-Content -Path .\lists\files.lst
+$junk_files = Get-Content -Path ..\lists\files.lst
 foreach($junk_file in $junk_files){
     try {Remove-Item -Path $junk_file -Recurse -Force -ErrorAction SilentlyContinue} catch {<#Do this if a terminating exception happens#>}
 }
