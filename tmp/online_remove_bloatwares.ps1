@@ -31,27 +31,11 @@ foreach ($item in $Bloatwares) {
     Write-Host 'Removing:'$item
     Remove-AppxPackage -Package $item.Trim() -AllUsers -Verbose -ErrorAction SilentlyContinue
 }
-Write-Host 'restart the computer'
-
-
-
-
-#Remove Windows Capabilities
-Write-Host 'removing windows capabilities'
-#$JunkWindowsCapabilities = Get-Content -Path .\lists\capabilities.lst
-$Bloatwares = (Invoke-WebRequest "http://mimoteb.synology.me/windows/deployment/lists/tasks.lst").ToString()
-foreach ($item in $Bloatwares) {
-    Write-Host 'Removing:'$item
-    Remove-WindowsCapability -Online -Name $item.Trim() -Verbose -ErrorAction SilentlyContinue
-}
-Write-Host 'restart the computer'
-
-
 
 $Bloatwares = get-content -path .\lists\AppxPackage.lst
 foreach($item in $Bloatwares){
     write-host 'Removing:'$item
-    Remove-AppxProvisionedPackage -PackageName $item.Trim() -Online -Verbose -ErrorAction SilentlyContinue
+    
 }
 Write-Host 'restart the computer'
 

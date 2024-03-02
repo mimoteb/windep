@@ -6,6 +6,7 @@ $items = Get-Content -Path $tempPath
 foreach ($item in $items) {
     Write-Host 'Removing:'$item
     Remove-AppxPackage -Package $item.Trim() -AllUsers -Verbose -ErrorAction SilentlyContinue
+    Remove-AppxProvisionedPackage -PackageName $item.Trim() -Online -Verbose -ErrorAction SilentlyContinue
 }
 
 Write-Host 'removing windows capabilities'
