@@ -80,3 +80,6 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OptimalLayout]
 "A0G0OptimizationEnabled"=dword:00000000
 "EnableAutoLayout"=dword:00000000
+; disable offline files
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\NetCache]
+"Enabled"=dword:00000000
