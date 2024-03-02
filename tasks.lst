@@ -7,3 +7,4 @@ Disable automatic optimization for SSD
 ScheduledDefrag" /Disable
 Disable defrag task, service, and reg
 disable offline files
+Disable Windows Autoupdate
