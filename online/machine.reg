@@ -148,3 +148,7 @@ Windows Registry Editor Version 5.00
 ; Disable Windows Search
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WSearch]
 "Start"=dword:00000004
+
+; Hide specific pages in the System Settings app
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"SettingsPageVisibility"="hide:gaming-gamebar"
