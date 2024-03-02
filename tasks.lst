@@ -5,4 +5,4 @@ Remove "Troubleshoot compatibility" from context menu
 Disable Online Tips in Explorer
 Disable automatic optimization for SSD
 ScheduledDefrag" /Disable
-sc config defragsvc start= disabled
+Disable defrag task, service, and reg
