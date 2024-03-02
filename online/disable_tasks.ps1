@@ -64,3 +64,4 @@ Disable-ScheduledTask -TaskName "\Microsoft\Windows\Feedback\Siuf\DmClientOnScen
 Disable-ScheduledTask -TaskName "\Microsoft\Windows\Shell\FamilySafetyRefreshTask"
 Disable-ScheduledTask -TaskName "\Microsoft\Windows\Windows Error Reporting\QueueReporting"
 Disable-ScheduledTask -TaskName "\Microsoft\XblGameSave\XblGameSaveTask"
+Unregister-ScheduledTask -TaskName 'Optimize Drives' -Confirm:$false
