@@ -24,7 +24,7 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\Microsoft\GameBar]
 "ShowStartupPanel"=dword:00000000
 
-; Disabling open xbox game bar using xbox button on game controller
+; Disabling open Xbox game bar using Xbox button on the game controller
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\GameBar]
 "UseNexusForGameBarEnabled"=dword:00000000
 
@@ -79,7 +79,7 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
 "NoRecentDocsHistory"=dword:00000001
 
-; Disabling recently added apps list on startup menu
+; Disabling recently added apps list on the startup menu
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer]
 "HideRecentlyAddedApps"=dword:00000001
 
@@ -100,7 +100,6 @@ Windows Registry Editor Version 5.00
 ; Disabling shared experiences
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]
 "EnableCdp"=dword:00000000
-
 
 ; Disabling Windows from automatically installing bloatwares in the background
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager]
@@ -125,7 +124,6 @@ Windows Registry Editor Version 5.00
 "SubscribedContent-310093Enabled"=dword:00000000
 "RemediationRequired"=dword:00000000
 
-
 ; Disabling Steps Recorder
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppCompat]
 "DisableUAR"=dword:00000001
@@ -134,17 +132,15 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsInkWorkspace]
 "AllowSuggestedAppsInWindowsInkWorkspace"=dword:00000000
 
-
-; Disabling tailored experiences with diagnostic data for current user
+; Disabling tailored experiences with diagnostic data for the current user
 [HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\CloudContent]
 "DisableTailoredExperiencesWithDiagnosticData"=dword:00000001
-
 
 ; Disabling VPN page in Windows settings
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Settings\AllowVPN]
 "value"=dword:00000000
 
-; Disabling Windows Ink Workspace app suggestions for current user
+; Disabling Windows Ink Workspace app suggestions for the current user
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\PenWorkspace]
 "PenWorkspaceAppSuggestionsEnabled"=dword:00000000
 
@@ -169,7 +165,6 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\OperationStatusManager]
 "EnthusiastMode"=dword:00000001
 
-
 ; Turning off Action Center always open
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell\Launcher]
 "DisableLightDismiss"=-
@@ -184,7 +179,7 @@ Windows Registry Editor Version 5.00
 "MouseThreshold1"="0"
 "MouseThreshold2"="0"
 
-; Turning off Windows error reporting for current user
+; Turning off Windows error reporting for the current user
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\Windows Error Reporting]
 "Disabled"=dword:00000001
 
@@ -264,7 +259,6 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
 "EnableFirstLogonAnimation"=dword:00000000
 
-
 [HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\CurrentVersion\PushNotifications]
 "NoTileApplicationNotification"=dword:00000001
 
@@ -275,7 +269,6 @@ Windows Registry Editor Version 5.00
 "HideFileExt"=dword:00000000
 "Hidden"=dword:00000001
 "ShowSyncProviderNotifications"=dword:00000000
-
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer]
 "SmartScreenEnabled"="Off"
@@ -308,7 +301,6 @@ Windows Registry Editor Version 5.00
 
 [-HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\SuggestedApps]
 
-
 ; Disable Location Tracking
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Sensor\Overrides\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}]
 "SensorPermissionState"=dword:00000000
@@ -316,11 +308,9 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\lfsvc\Service\Configuration]
 "Status"=dword:00000000
 
-
 ; Disable Automatic Maps updates
 [HKEY_LOCAL_MACHINE\SYSTEM\Maps]
 "AutoUpdateEnabled"=dword:00000000
-
 
 ; Disable Feedback
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Siuf\Rules]
@@ -329,11 +319,9 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection]
 "DoNotShowFeedbackNotifications"=dword:00000001
 
-
 ; Disable Advertising ID
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo]
 "Enabled"=dword:00000000
-
 
 ; Disable Error Reporting
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting]
@@ -341,11 +329,9 @@ Windows Registry Editor Version 5.00
 
 ; Note: Stopping the service "WerSvc" and setting its startup type to "Disabled" is recommended separately.
 
-
 ; Stop Sending Microsoft Info About How You Write
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Input\TIPC]
 "Enabled"=dword:00000000
-
 
 ; Disable Sharing Of Handwriting Data
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\TabletPC]
