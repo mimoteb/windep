@@ -8,6 +8,7 @@ the rest is handled by automate.ps1
 git config user.name "User Name"
 git config user.email "mail@domain.com"
 Auto.xml file : Microsoft-Windows-Setup\ImageInstall\OSImage\Compact
+
 change program associations
 # Change Program Association
 Write-Host "Changing Program Association..."
@@ -62,3 +63,39 @@ $XmlWriter.Flush()
 $XmlWriter.Close()
 Dism.exe /Online /Import-DefaultAppAssociations:C:\Users\$env:username\Desktop\AppAssociations.xml  2>&1 | Out-Null
 Remove-Item C:\Users\$env:username\Desktop\AppAssociations.xml
+
+
+
+
+
+
+
+W:\win11de\mount\ProgramData\Microsoft\AppV\Setup
+W:\win11de\mount\Program Files\Common Files\microsoft shared\ink
+W:\win11de\mount\Program Files\Windows Mail
+W:\win11de\mount\Program Files\Windows Media Player
+remove other languages
+remove-appxpackage (post installation)
+test-path for process.ps1
+
+
+# deldir($mount+'')
+# deldir($mount+'\Users\Default\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Administrative Tools.lnk')
+# deldir($mount+'\Users\Default\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Accessibility')
+# deldir($mount+'\Users\Default\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Accessories')
+# deldir($mount+'\Users\Default\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Maintenance')
+# deldir($mount+'')
+# deldir($mount+'')
+# #Cleanup Programdata
+# deldir($mount+'\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessibility')
+# deldir($mount+'\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories')
+# deldir($mount+'\ProgramData\Microsoft\Windows\Start Menu\Programs\Maintenance')
+# deldir($mount+'\ProgramData\Microsoft\Windows\Start Menu\Programs\Windows PowerShell')
+# deldir($mount+'\ProgramData\Microsoft\Windows\Start Menu\Programs\Administrative Tools')
+# deldir($mount+'\ProgramData\Microsoft\Windows\Start Menu\Programs\System Tools')
+reg load HKLM\ImportedHive "C:\Users\Default\NTUser.DAT"
+for /f %%a IN ('dir /b "%~dp0\*.reg"') do reg import "%~dp0%%a"
+reg unload HKLM\ImportedHive
+
+
+
