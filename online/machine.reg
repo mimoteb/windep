@@ -65,3 +65,7 @@ Windows Registry Editor Version 5.00
 
 ; Remove "Troubleshoot compatibility" from context menu for executable files
 [-HKEY_CLASSES_ROOT\exefile\shellex\ContextMenuHandlers\Compatibility]
+
+; Disable Online Tips in Explorer
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"AllowOnlineTips"=dword:00000000
