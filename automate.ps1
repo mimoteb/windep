@@ -27,22 +27,10 @@ set-location -Path "$env:TEMP\windep-main"
 Write-Host "Current Directory: $($PWD.Path)" -foregroundcolor yellow
 
 # this will be the main script
-$scripts = Get-ChildItem -Path "$env:TEMP\windep-main\online\*.ps1" | Sort-Object
-$logFilePath = "$env:TEMP\windep.log"
-
+$scripts = Get-ChildItem -path "$env:TEMP\windep-main\online\*.ps1"  | Sort-Object
 foreach ($script in $scripts) {
-    Write-Host "[Executing] : $($script.FullName)" -ForegroundColor Cyan
-
-    try {
-        $output = Invoke-Expression -Command "powershell -ExecutionPolicy Bypass -File $($script.FullName) 2>&1"
-        $output | Out-File -Append -LiteralPath $logFilePath
-        Write-Host "[Success] : $($script.FullName)" -ForegroundColor Green
-    } catch {
-        $errorMessage = "Error executing script $($script.FullName). Error message: $_"
-        $errorMessage | Out-File -Append -LiteralPath $logFilePath
-        Write-Host "[Error] : $($script.FullName)" -ForegroundColor Red
-        Write-Host $errorMessage -ForegroundColor Red
-    }
+    write-host '[Executing] :' $script -ForegroundColor cyan
+    Start-Process powershell -ArgumentList "-ExecutionPolicy Bypass -File $script" -Wait
 }
 
 Write-Host 'Restart the computer'
