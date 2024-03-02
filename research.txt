@@ -1,0 +1,156 @@
+# https://admx.help/
+# Disable Telemetry for Default User 
+Write-Host "[REG] Disabling Telemetry for Default User" -ForegroundColor Cyan
+
+# Set-ItemProperty for Default User (HKEY_USERS\.Default)
+$defaultUserPath = "Registry::HKEY_USERS\.Default\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection"
+Set-ItemProperty -Path $defaultUserPath -Name "AllowTelemetry" -Type DWord -Value 0
+
+# Additional paths if needed
+$additionalPaths = @(
+    "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection",
+    "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\DataCollection"
+)
+
+foreach ($path in $additionalPaths) {
+    Set-ItemProperty -Path $path -Name "AllowTelemetry" -Type DWord -Value 0
+}
+
+Example 1: Remove a context menu entry from File Explorer
+
+Windows Registry Editor Version 5.00
+
+; Remove a context menu entry (replace {GUID} with the actual GUID)
+[-HKEY_CLASSES_ROOT\Directory\shellex\ContextMenuHandlers\{GUID}]
+Example 2: Remove a context menu entry from Desktop
+
+
+Windows Registry Editor Version 5.00
+
+; Remove a context menu entry from the Desktop (replace {GUID} with the actual GUID)
+[-HKEY_CLASSES_ROOT\DesktopBackground\ShellEx\ContextMenuHandlers\{GUID}]
+Example 3: Remove a column handler from File Explorer details view
+
+
+Windows Registry Editor Version 5.00
+
+; Remove a column handler (replace {GUID} with the actual GUID)
+[-HKEY_CLASSES_ROOT\SystemFileAssociations\{GUID}]
+Example 4: Remove a thumbnail handler
+
+
+Windows Registry Editor Version 5.00
+
+; Remove a thumbnail handler (replace {GUID} with the actual GUID)
+[-HKEY_CLASSES_ROOT\*\shellex\{BB2E617C-0920-11d1-9A0B-00C04FC2D6C1}]
+Replace {GUID} with the actual GUID of the shell extension you want to remove.
+
+
+
+setupcommand.cmd is being called after a sucessful installation of windows
+setupcommand is downloading windep repo from github and execute automate.ps1
+the rest is handled by automate.ps1
+
+- create a directory for all the files in the project in temp directory and call it base
+- download the apps to windows temp directory and install them from there
+- online and offline repos?
+git config user.name "User Name"
+git config user.email "mail@domain.com"
+Auto.xml file : Microsoft-Windows-Setup\ImageInstall\OSImage\Compact
+
+compact /CompactOS:always
+
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/compact-os?view=windows-11
+
+ShellExView and disable uncessary shell extensions
+
+change program associations
+# Change Program Association
+Write-Host "Changing Program Association..."
+$filePath = "C:\Users\$env:username\Desktop\AppAssociations.xml"
+$XmlWriter = New-Object System.XMl.XmlTextWriter($filePath,$Null)
+$XmlWriter.Formatting = "Indented"
+$XmlWriter.Indentation = "2"
+$XmlWriter.WriteStartDocument()
+$XmlWriter.WriteStartElement("DefaultAssociations")
+$XmlWriter.WriteStartElement("Association")  
+$XmlWriter.WriteAttributeString("Identifier", ".htm")
+$XmlWriter.WriteAttributeString("ProgId", "ChromeHTML")
+$XmlWriter.WriteAttributeString("ApplicationName", "Google Chrome")
+$XmlWriter.WriteEndElement()
+$XmlWriter.WriteStartElement("Association")  
+$XmlWriter.WriteAttributeString("Identifier", ".html")
+$XmlWriter.WriteAttributeString("ProgId", "ChromeHTML")
+$XmlWriter.WriteAttributeString("ApplicationName", "Google Chrome")
+$XmlWriter.WriteEndElement()
+$XmlWriter.WriteStartElement("Association")  
+$XmlWriter.WriteAttributeString("Identifier", "http")
+$XmlWriter.WriteAttributeString("ProgId", "ChromeHTML")
+$XmlWriter.WriteAttributeString("ApplicationName", "Google Chrome")
+$XmlWriter.WriteEndElement()
+$XmlWriter.WriteStartElement("Association")  
+$XmlWriter.WriteAttributeString("Identifier", "https")
+$XmlWriter.WriteAttributeString("ProgId", "ChromeHTML")
+$XmlWriter.WriteAttributeString("ApplicationName", "Google Chrome")
+$XmlWriter.WriteEndElement()
+$XmlWriter.WriteStartElement("Association")  
+$XmlWriter.WriteAttributeString("Identifier", ".htm")
+$XmlWriter.WriteAttributeString("ProgId", "ChromeHTML")
+$XmlWriter.WriteAttributeString("ApplicationName", "Google Chrome")
+$XmlWriter.WriteEndElement()
+$XmlWriter.WriteStartElement("Association")  
+$XmlWriter.WriteAttributeString("Identifier", ".jpg")
+$XmlWriter.WriteAttributeString("ProgId", "IrfanView.jpg")
+$XmlWriter.WriteAttributeString("ApplicationName", "IrfanView 32-bit")
+$XmlWriter.WriteEndElement()
+$XmlWriter.WriteStartElement("Association")  
+$XmlWriter.WriteAttributeString("Identifier", ".png")
+$XmlWriter.WriteAttributeString("ProgId", "IrfanView.png")
+$XmlWriter.WriteAttributeString("ApplicationName", "IrfanView 32-bit")
+$XmlWriter.WriteEndElement()
+$XmlWriter.WriteStartElement("Association")  
+$XmlWriter.WriteAttributeString("Identifier", ".txt")
+$XmlWriter.WriteAttributeString("ProgId", "Applications\notepad++.exe")
+$XmlWriter.WriteAttributeString("ApplicationName", "Notepad++ : a free (GNU) source code editor")
+$XmlWriter.WriteEndElement()
+$XmlWriter.WriteEndDocument()
+$XmlWriter.Flush()
+$XmlWriter.Close()
+Dism.exe /Online /Import-DefaultAppAssociations:C:\Users\$env:username\Desktop\AppAssociations.xml  2>&1 | Out-Null
+Remove-Item C:\Users\$env:username\Desktop\AppAssociations.xml
+
+
+
+
+
+
+
+W:\win11de\mount\ProgramData\Microsoft\AppV\Setup
+W:\win11de\mount\Program Files\Common Files\microsoft shared\ink
+W:\win11de\mount\Program Files\Windows Mail
+W:\win11de\mount\Program Files\Windows Media Player
+remove other languages
+remove-appxpackage (post installation)
+test-path for process.ps1
+
+
+# deldir($mount+'')
+# deldir($mount+'\Users\Default\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Administrative Tools.lnk')
+# deldir($mount+'\Users\Default\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Accessibility')
+# deldir($mount+'\Users\Default\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Accessories')
+# deldir($mount+'\Users\Default\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Maintenance')
+# deldir($mount+'')
+# deldir($mount+'')
+# #Cleanup Programdata
+# deldir($mount+'\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessibility')
+# deldir($mount+'\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories')
+# deldir($mount+'\ProgramData\Microsoft\Windows\Start Menu\Programs\Maintenance')
+# deldir($mount+'\ProgramData\Microsoft\Windows\Start Menu\Programs\Windows PowerShell')
+# deldir($mount+'\ProgramData\Microsoft\Windows\Start Menu\Programs\Administrative Tools')
+# deldir($mount+'\ProgramData\Microsoft\Windows\Start Menu\Programs\System Tools')
+reg load HKLM\ImportedHive "C:\Users\Default\NTUser.DAT"
+for /f %%a IN ('dir /b "%~dp0\*.reg"') do reg import "%~dp0%%a"
+reg unload HKLM\ImportedHive
+
+
+
