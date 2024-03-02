@@ -17,13 +17,13 @@ foreach ($item in $items) {
         Write-Host "[Error]: Failed to remove $item - $_" -ForegroundColor Red
     }
 
-    try {
-        Write-Host "[AppxProvisionedPackage] Removing: $item" -ForegroundColor Cyan
-        #Remove-AppxProvisionedPackage -package $item -Online -ErrorAction SilentlyContinue
-        Write-Host "Successfully removed provisioned package: $item" -ForegroundColor Green
-    } catch {
-        Write-Host "[Error]: Failed to remove $item - $_" -ForegroundColor Red
-    }
+    # try {
+    #     Write-Host "[AppxProvisionedPackage] Removing: $item" -ForegroundColor Cyan
+    #     #Remove-AppxProvisionedPackage -package $item -Online -ErrorAction SilentlyContinue
+    #     Write-Host "Successfully removed provisioned package: $item" -ForegroundColor Green
+    # } catch {
+    #     Write-Host "[Error]: Failed to remove $item - $_" -ForegroundColor Red
+    # }
 }
 
 
