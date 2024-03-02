@@ -23,35 +23,6 @@ Get-Content $Bloatwares | ForEach-Object {
 
 }
 
-#Remove AppxPackage
-Write-Host 'removing AppxPackage'
-#$Bloatwares = Get-Content -Path .\lists\AppxPackage.lst
-Bloatwares = (Invoke-WebRequest "http://mimoteb.synology.me/windows/deployment/lists/AppxPackage.lst").ToString()
-foreach ($item in $Bloatwares) {
-    Write-Host 'Removing:'$item
-    Remove-AppxPackage -Package $item.Trim() -AllUsers -Verbose -ErrorAction SilentlyContinue
-}
-
-$Bloatwares = get-content -path .\lists\AppxPackage.lst
-foreach($item in $Bloatwares){
-    write-host 'Removing:'$item
-    
-}
-Write-Host 'restart the computer'
-
-
-
-
-Write-Host 'Processing Optional Features list...'
-$Bloatwares = '.\lists\features.lst' # Path to the list of features to remove
-if ((Test-Path $Bloatwares) -eq $true){
-    # Read the list from the file
-    $Bloatwares = Get-Content -Path $bloatware
-    foreach ($item in $bloatware) {
-        try {Disable-WindowsOptionalFeature -Online -FeatureName $item.Trim() -ErrorAction SilentlyContinue} catch {}
-    }
-}
-
 
 # Remove files
 $junk_files = Get-Content -Path .\lists\files.lst
