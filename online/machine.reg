@@ -157,3 +157,8 @@ Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Main]
 "DoNotTrack"=dword:00000001
+
+; Disable the first-run page in Microsoft Edge
+; This registry setting sets the PreventFirstRunPage value to 1 under Software\Policies\Microsoft\MicrosoftEdge\Main
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Main]
+"PreventFirstRunPage"=dword:00000001
