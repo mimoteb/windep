@@ -208,3 +208,9 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge]
 "TrackingPrevention"=dword:00000003
 
+; Set Microsoft Edge Background Mode
+; 0 - Background Mode Off / 1 - Background Mode On
+; This registry setting sets the BackgroundModeEnabled value to 0 (Off) under Software\Policies\Microsoft\Edge
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge]
+"BackgroundModeEnabled"=dword:00000000
