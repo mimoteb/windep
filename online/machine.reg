@@ -200,3 +200,11 @@ Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge]
 "DiagnosticData"=dword:00000000
+
+; Set Microsoft Edge Tracking Prevention
+; 0 - Tracking Prevention Off / 1 - Basic / 2 - Balanced / 3 - Strict
+; This registry setting sets the TrackingPrevention value to 0 (Off) under Software\Policies\Microsoft\Edge
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge]
+"TrackingPrevention"=dword:00000003
+
