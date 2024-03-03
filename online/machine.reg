@@ -171,3 +171,6 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge]
 "EdgeSidebarCustomizeEnabled"=dword:00000000
 
+; Disable Send Required and Optional Diagnostic Data about Microsoft Edge for All Users
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge]
+"DiagnosticData"=dword:00000000
