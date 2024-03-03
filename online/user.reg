@@ -1,9 +1,5 @@
 Windows Registry Editor Version 5.00
 
-; Disable Windows animation when minimizing and maximizing
-[HKEY_CURRENT_USER\Control Panel\Desktop\WindowMetrics]
-"MinAnimate"="0"
-
 ; This script will disable Cortana
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search]
 "AllowCortana"=dword:00000000
@@ -91,7 +87,6 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Control Panel\Desktop]
 "EnablePerProcessSystemDPI"=dword:00000000
 [HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Display]
-"EnablePerProcessSystemDPIForProcesses"=""
 "DisablePerProcessSystemDPIForProcesses"=""
 
 ; Disabling shared experiences
@@ -150,9 +145,7 @@ Windows Registry Editor Version 5.00
 "NumberOfSIUFInPeriod"=dword:00000000
 [-HKEY_CURRENT_USER\SOFTWARE\Microsoft\Siuf\Rules]
 
-; Setting open File Explorer to This PC
-[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
-"LaunchTo"=dword:00000001
+
 
 ; Setting Find My Files to classic for search indexer
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Search\Gather\Windows\SystemIndex]
@@ -166,9 +159,7 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell\Launcher]
 "DisableLightDismiss"=-
 
-; Turning off Aero Snap
-[HKEY_CURRENT_USER\Control Panel\Desktop]
-"WindowArrangementActive"="0"
+
 
 ; Turning off Enhance Pointer Precision
 [HKEY_CURRENT_USER\Control Panel\Mouse]
@@ -215,9 +206,7 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\Microsoft\Speech_OneCore\Settings\OnlineSpeechPrivacy]
 "HasAccepted"=dword:00000000
 
-; Turning off recent items and frequent places
-[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
-"Start_TrackDocs"=dword:00000000
+
 
 ; Turning off relevant Ads
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo]
@@ -262,10 +251,7 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\CabinetState]
 "FullPath"=dword:00000001
 
-[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
-"HideFileExt"=dword:00000000
-"Hidden"=dword:00000001
-"ShowSyncProviderNotifications"=dword:00000000
+
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer]
 "SmartScreenEnabled"="Off"
@@ -276,11 +262,8 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection]
 "AllowTelemetry"=dword:00000000
 
-[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
-"DisablePreviewDesktop"=dword:00000001
 
-[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM]
-"EnableAeroPeek"=dword:00000000
+
 
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer]
 "link"=hex(2):00,00,00,00
@@ -346,3 +329,47 @@ Windows Registry Editor Version 5.00
 "CacheLimit"=dword:00000400
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Cache\Content]
 "CacheLimit"=dword:00000400
+
+; Turning off Aero Snap
+[HKEY_CURRENT_USER\Control Panel\Desktop]
+"WindowArrangementActive"="0"
+
+; Disable Windows animation when minimizing and maximizing
+[HKEY_CURRENT_USER\Control Panel\Desktop\WindowMetrics]
+"MinAnimate"="0"
+
+; Do not use drop shadows for icon labels on the desktop
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"ListviewShadow"=1
+
+; Smooth Edges of Screen Fonts
+[HKEY_CURRENT_USER\Control Panel\Desktop]
+"FontSmoothing"="2"
+
+; Show window contents while dragging
+[HKEY_CURRENT_USER\Control Panel\Desktop]
+"DragFullWindows"=1
+
+;Animations in the taskbar
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"TaskbarAnimations"=dword:0
+
+;Enable Peek
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\DWM]
+"EnableAeroPeek"=dword:0
+
+; Setting open File Explorer to This PC
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"LaunchTo"=dword:00000001
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"DisablePreviewDesktop"=dword:00000001
+
+; Turning off recent items and frequent places
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"Start_TrackDocs"=dword:00000000
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"HideFileExt"=dword:00000000
+"Hidden"=dword:00000001
+"ShowSyncProviderNotifications"=dword:00000000
