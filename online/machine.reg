@@ -167,7 +167,7 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge]
 "EdgeWorkspacesEnabled"=dword:00000000
 
-; Disable Sidebar Customize in Microsoft Edge
+; Disable Sidebar Customize in Microsoft Edge for All Users
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge]
 "EdgeSidebarCustomizeEnabled"=dword:00000000
 
