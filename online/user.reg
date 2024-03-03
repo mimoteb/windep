@@ -143,7 +143,6 @@ Windows Registry Editor Version 5.00
 ; Setting Never feedback frequency
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Siuf\Rules]
 "NumberOfSIUFInPeriod"=dword:00000000
-[-HKEY_CURRENT_USER\SOFTWARE\Microsoft\Siuf\Rules]
 
 
 
@@ -380,4 +379,3 @@ Windows Registry Editor Version 5.00
 ;Show translucent selection rectangle
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
 "ListviewAlphaSelect"=dword:1
-
