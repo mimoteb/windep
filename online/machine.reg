@@ -162,3 +162,7 @@ Windows Registry Editor Version 5.00
 ; This registry setting sets the PreventFirstRunPage value to 1 under Software\Policies\Microsoft\MicrosoftEdge\Main
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Main]
 "PreventFirstRunPage"=dword:00000001
+
+; Disable Microsoft Edge Workspaces for all users
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge]
+"EdgeWorkspacesEnabled"=dword:00000000
