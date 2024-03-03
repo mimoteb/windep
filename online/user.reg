@@ -88,14 +88,11 @@ Windows Registry Editor Version 5.00
 "AlwaysHibernateThumbnails"=dword:00000000
 
 ; Disabling scaling
-[-HKEY_CURRENT_USER\Control Panel\Desktop]
 [HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Control Panel\Desktop]
 "EnablePerProcessSystemDPI"=dword:00000000
 [HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Display]
 "EnablePerProcessSystemDPIForProcesses"=""
 "DisablePerProcessSystemDPIForProcesses"=""
-[-HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Control Panel\Desktop]
-[-HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Display]
 
 ; Disabling shared experiences
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]
