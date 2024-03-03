@@ -292,6 +292,7 @@ Windows Registry Editor Version 5.00
 "ShortcutNameTemplate"=-
 
 ; Disable Start Menu Suggestions
+
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager]
 "SystemPaneSuggestionsEnabled"=dword:00000000
 
