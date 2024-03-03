@@ -331,7 +331,7 @@ Windows Registry Editor Version 5.00
 
 ; Turning off Aero Snap
 [HKEY_CURRENT_USER\Control Panel\Desktop]
-"WindowArrangementActive"="0"
+"WindowArrangementActive"="1"
 
 ; Disable Windows animation when minimizing and maximizing
 [HKEY_CURRENT_USER\Control Panel\Desktop\WindowMetrics]
