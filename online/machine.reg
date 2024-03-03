@@ -174,3 +174,9 @@ Windows Registry Editor Version 5.00
 ; Disable Send Required and Optional Diagnostic Data about Microsoft Edge for All Users
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge]
 "DiagnosticData"=dword:00000000
+
+; Disable Microsoft Rewards in Microsoft Edge
+; This registry setting sets the ShowMicrosoftRewards value to 1 under Software\Policies\Microsoft\Edge\Recommended
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge\Recommended]
+"ShowMicrosoftRewards"=dword:00000000
