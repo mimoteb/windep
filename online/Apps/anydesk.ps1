@@ -14,7 +14,7 @@ $IsSoftwareInstalled = Get-ChildItem -Path $CheckPath -Filter $Filter -File | Se
 if ($IsSoftwareInstalled) {
     Write-Host "[AnyDesk] Found in $CheckPath" -ForegroundColor Green
     } else {
-
+        # AnyDesk is not installed now installing it
         # Find the first drive with "windep" in its root path
         $IsWinDep = $drives | Where-Object { Test-Path (Join-Path $_.Root "\" -ChildPath "windep") } | Select-Object -First 1
         # Check if local windep directory exists
@@ -22,15 +22,16 @@ if ($IsSoftwareInstalled) {
             $DriveLetter = $IsWinDep.Name 
             $WinDep = (Join-Path $DriveLetter '\windep\')
             Write-Host "[$WinDep] Found 'windep'" -ForegroundColor Green
-            $setupPath = (Join-Path $WinDep "Apps\acrordr2020\Setup.exe")
+            $setupPath = (Join-Path $WinDep "Apps\AnyDesk.exe")
             if (Test-Path $setupPath) {
-                try {Start-Process $setupPath -Wait -ArgumentList '/sPB /rs /rps /sl "1031"'
-                    Write-Host 'Installed Adobe Acrobat Reader'
+                try {
+                    Write-Host "[AnyDesk] is being installed"
+                    Start-Process msiexec.exe -Wait -ArgumentList "/I `"$setupPath`" /quiet"
+                    Write-Host '[AnyDesk] Installed' -ForegroundColor Green
                 } catch {}
-            } else {Write-Host '[Adobe Reader] Installation was not found in Drive\Windep\Apps\AcroRDR2020\Setup.exe'}
+            }
+            else {Write-Host '[AnyDesk] Installation was not found in Drive\Windep\Apps\AnyDesk.exe'}
         } else {Write-Host "[Drive\WinDep] Directory was not found." -ForegroundColor Red}
-        Write-Host "[AnyDesk] is being installed"
-        Write-Host "No file matching the criteria found in $CheckPath."
 }
 
 
