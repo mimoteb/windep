@@ -97,7 +97,7 @@ if (-not (Test-Path $check_path)) {
 
 # Firefox
 $checkPath = "C:\Program Files\Mozilla Firefox\firefox.exe"
-$setupPath = Join-Path $scriptDirectory "apps\firefox.exe"
+$setupPath = Join-Path $scriptDirectory "D:\data\apps\firefox.exe"
 
 if (-not (Test-Path $checkPath)) {
     if (-not (Test-Path $setupPath)) {
