@@ -47,5 +47,5 @@ def process_files_in_script_directory():
             print("Case-insensitive duplicate lines removed and saved to", input_file)
             print("="*30)
 
-if __name__ == '__main__':
-    process_files_in_script_directory()
+# if __name__ == '__main__':
+#     process_files_in_script_directory()
