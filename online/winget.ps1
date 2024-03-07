@@ -52,7 +52,7 @@ $setupPath = "C:\Program Files\7-Zip\7z.exe"
 if (-not (Test-Path $setupPath)) {
     try {
         # Install 7-Zip using winget if not already installed
-        winget install 7zip.7zip --force --silent
+        winget install -e --silent --accept-source-agreements --accept-package-agreements 7zip.7zip --force --silent
 
         Write-Host "7-Zip installation completed."
     } catch {
