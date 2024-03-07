@@ -1,6 +1,6 @@
 Write-Host '[AppxPackages] Removal started' -ForegroundColor Yellow
 $curDir = Split-Path -Parent $MyInvocation.MyCommand.Path
-$JunkPath = Join-Path $curDir 'AppxPackage.lst'
+$JunkPath = Join-Path $curDir 'AppxPackages.lst'
 $JunkItems = Get-Content -Path $JunkPath -ErrorAction SilentlyContinue
 foreach ($item in $JunkItems) {
     $item = $item.Trim()
