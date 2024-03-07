@@ -1,8 +1,9 @@
 Write-Host '[Image] cleanup components' -ForegroundColor Cyan
 # start /wait dism.exe /Online /Cleanup-Image /StartComponentCleanup /ResetBase
 # start /wait dism.exe /Online /Cleanup-Image /SPSuperseded
-regedit /s machine.reg
-regedit /s user.reg
+# relative paths should be used here
+regedit /s ./machine.reg
+regedit /s ./user.reg
 
 Start-Process -FilePath dism.exe -ArgumentList '/Online /Cleanup-Image /StartComponentCleanup /ResetBase' -Wait
 Start-Process -FilePath dism.exe -ArgumentList '/Online /Cleanup-Image /SPSuperseded' -Wait
