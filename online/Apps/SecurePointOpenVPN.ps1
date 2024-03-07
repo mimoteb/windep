@@ -8,13 +8,14 @@ if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
 $Link = "https://sourceforge.net/projects/securepoint/files/latest/download"
 $FileName = $env:TEMP + "\securepointvpn.exe"
 try { 
-    Write-Host "Downloading: " + $FileName
-        Invoke-WebRequest -UserAgent "Wget" -Uri $Link -OutFile $env:TEMP'\securepointvpn.exe'
-        Write-Host "SecurePoint VPN Client downloaded successfully."
+    Write-Host "[OpenVPN] Downloadingto : " + $FileName -ForegroundColor Cyan
+    $webClient = New-Object System.Net.WebClient
+    $webClient.DownloadFile($Link, $FileName)
+        Write-Host "[OpenVPN] downloaded successfully." -ForegroundColor Green
         & $FileName /qn
     }
         catch {
-            Write-Host "Error in Securepoint VPN installation"
+            Write-Host "Error in Securepoint VPN installation" -ForegroundColor Red
     }
 
     
