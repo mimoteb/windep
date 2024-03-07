@@ -1,7 +1,7 @@
 write-host '[Info] removing bloatwares' -ForegroundColor Yellow
 
 Write-Host '[Info] Removing AppxPackages' -ForegroundColor Yellow
-$tempPath = [System.IO.Path]::Combine($env:TEMP, 'windep-main\lists\AppxPackage.lst')
+$tempPath = [System.IO.Path]::Combine($env:TEMP, 'windep-main\config\AppxPackage.lst')
 $items = Get-Content -Path $tempPath
 
 foreach ($item in $items) {
@@ -25,7 +25,7 @@ foreach ($item in $items) {
 }
 
 Write-Host '[Info] removing windows capabilities' -ForegroundColor Yellow
-$tempPath = [System.IO.Path]::Combine($env:TEMP, 'windep-main\lists\capabilities.lst')
+$tempPath = [System.IO.Path]::Combine($env:TEMP, 'windep-main\config\capabilities.lst')
 $items = Get-Content -Path $tempPath
 foreach ($item in $items) {
     Write-Host '[Capability] Removing:'$item -ForegroundColor Cyan
@@ -34,7 +34,7 @@ foreach ($item in $items) {
 Write-Host 'removing windows AppxProvisionedPackage'
 
 Write-Host '[Info] Processing Optional Features list...' -ForegroundColor Yellow
-$tempPath = [System.IO.Path]::Combine($env:TEMP, 'windep-main\lists\features.lst')
+$tempPath = [System.IO.Path]::Combine($env:TEMP, 'windep-main\config\features.lst')
 foreach ($item in $bloatware) {
         try {Disable-WindowsOptionalFeature -Online -FeatureName $item.Trim() -ErrorAction SilentlyContinue
         Write-Host "[Feature] Disabling "$item.Trim()} catch {}

@@ -1,5 +1,5 @@
 write-host 'Disabling Tasks'
-$tempPath = [System.IO.Path]::Combine($env:TEMP, 'windep-main\lists\tasks.lst')
+$tempPath = [System.IO.Path]::Combine($env:TEMP, 'windep-main\config\tasks.lst')
 $items = Get-Content -Path $tempPath
 # Read the file line by line
 Get-Content $items | ForEach-Object {
