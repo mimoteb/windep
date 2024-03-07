@@ -2,7 +2,7 @@
 $URL = "https://api.github.com/repos/microsoft/winget-cli/releases/latest"
 $URL = (Invoke-WebRequest -Uri $URL).Content | ConvertFrom-Json |
         Select-Object -ExpandProperty "assets" |
-        Where-Object { $_.browser_download_url -match '.msixbundle' } |
+        Where-Object { $_.browser_download_url -like '*.msixbundle' } |
         Select-Object -ExpandProperty "browser_download_url"
 
 # Set the download path to %temp%
