@@ -1,6 +1,6 @@
 write-host '[Info] removing bloatwares' -ForegroundColor Yellow
 
-Write-Host '[Info] Removing AppxPackages' -ForegroundColor Yellow
+
 $tempPath = [System.IO.Path]::Combine($env:TEMP, 'windep-main\config\AppxPackage.lst')
 $items = Get-Content -Path $tempPath
 
