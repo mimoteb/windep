@@ -66,4 +66,5 @@ if (-not (Test-Path $setupPath)) {
 
 winget install Zoom.ZoomOutlookPlugin --force --silent
 
-# winget install Mozilla.Firefox --force --silent
+winget install Mozilla.Firefox --force --silent
+
