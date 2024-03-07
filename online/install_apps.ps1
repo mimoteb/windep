@@ -6,31 +6,11 @@ write-host '[Info] Installing Apps' -ForegroundColor Yellow
 # step 4 silent install
 # step 5 create shortcuts
 # change all downloaded items to temp directory instead
-$AppsDir = Join-Path $BaseDir "apps"
+
 # Get the path to the temporary directory
 $TempDir = [System.IO.Path]::GetTempPath()
-
 # Combine the temporary directory path with the desired subdirectory
 $BaseDir = Join-Path $TempDir 'windep-main'
-
-if (-not (Test-Path $AppsDir)) {
-    New-Item -Path $AppsDir -ItemType Directory
-    Write-Host "Directory 'apps' created."} else {}
-
-
-# $setupPath = Join-Path $AppsDir "ZoomOutlookPluginSetup.msi"
-
-# if (Test-Path $setupPath) {
-#     try {
-#         Start-Process msiexec.exe -Wait -ArgumentList "/i `"$setupPath`" /quiet"
-#         Write-Host 'Installed Zoom Outlook Plugin'
-#     } catch {
-#         Write-Host 'An error occurred while installing Zoom Outlook Plugin.'
-#         # Handle if a terminating exception happens
-#     }
-# } else {
-#     Write-Host 'Zoom Outlook Plugin setup file not found.'
-# }
 
 # Adobe Acrobat reader
 $setupPath = Join-Path $BaseDir "Apps\acrordr2020\Setup.exe"
@@ -56,7 +36,6 @@ if (-not (Test-Path $check_path)) {
         try {
             $client = New-Object System.Net.WebClient
             $client.DownloadFile("https://get.anydesk.com/hpbChuIG/Fernwartung.exe", $setupPath)
-
             Write-Host "Installed AnyDesk"
             
         } catch {
@@ -130,7 +109,7 @@ foreach ($executable in $officeExecutables) {
         
         Write-Host "Downloading MS365"
         $office_exe = Join-Path $BaseDir '\tmp\apps\officesetup.exe'
-        $office_config = Join-Path $BaseDir 'lists\officede.xml'
+        $office_config = Join-Path $BaseDir '\apps.xml'
         Start-Process -Wait -FilePath $office_exe -ArgumentList "/download", $office_config
         Start-Process -Wait -FilePath $office_exe -ArgumentList "/configure", $office_config
     }
