@@ -2,9 +2,7 @@
 # Install Adobe Acrobat Reader 2020
 
 # Check if the Setup files are already downloaded i.e existed on an external source
-foreach ($d in Get-PSDrive) {
-    Write-Host $d
-}
+
 # Adobe Acrobat reader
 $setupPath = Join-Path $BaseDir "Apps\acrordr2020\Setup.exe"
 if (Test-Path $setupPath) {
