@@ -6,9 +6,12 @@ $User = (Join-Path $PSDir "\User.reg")
 $TempDir = [System.IO.Path]::GetTempPath()
 $BaseDir = Join-Path $TempDir 'windep-main'
 
-Start-Process regedit -ArgumentList '/s', $Machine
-regedit /s (join-path $BaseDir '\online\machine.reg')
-#Start-Process reg -ArgumentList "import ./user.reg" -Wait
 
+Start-Process regedit -ArgumentList '/s', $Machine
+# Check if the user is not an administrator
+Start-Process regedit -ArgumentList '/s', $User
+
+# finally execute all the reg files in the same directory
+$
 # Finally delete this script
 Remove-Item -Path $MyInvocation.MyCommand.Source -Force -ErrorAction SilentlyContinue

@@ -6,7 +6,7 @@ $JunkPath = Join-Path $curDir 'Features.lst'
 $JunkItems = Get-Content -Path $JunkPath
 
 foreach ($item in $JunkItems) {
-        try {Disable-WindowsOptionalFeature -Online -FeatureName $item.Trim() -ErrorAction SilentlyContinue
+        try {Disable-WindowsOptionalFeature -Online -FeatureName $item.Trim() -ErrorAction SilentlyContinue -NoRestart
         Write-Host "[Feature] Disabling "$item.Trim()} catch {}
     }
 
