@@ -1,3 +1,4 @@
+# Check if SecurePoint OpenVPN is installed at the beginning
 # Execute script only when laptop is detected i.e. when there is a battery
 # Secure Point language selection prompt suspends the automation
 # Description
