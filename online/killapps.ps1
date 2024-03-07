@@ -1,9 +1,9 @@
 # these apps can be killed before the processing so it will not make the computer slow.
-Write-Host '[INFO] Stopping Windows Defender' -ForegroundColor Cyan
+Write-Host '[Windows Defender] Stopping Windows Defender' -ForegroundColor Cyan
 Set-MpPreference -DisableRealtimeMonitoring $true -Force
 
-write-host '[INFO] Stopping Windows Update...' -ForegroundColor Cyan
+write-host '[Windows Update] Stopping Windows Update...' -ForegroundColor Cyan
 net stop WUAUSERV
 
-write-host '[INFO] Stopping oneDrive' -foregroundcolor cyan
+write-host '[OneDrive] Stopping oneDrive' -ForegroundColor Cyan
 taskkill /f /im onedrive.exe
