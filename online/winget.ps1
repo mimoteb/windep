@@ -18,29 +18,39 @@
 # # Delete the downloaded file
 # Remove-Item $downloadPath
 
-Add-AppxPackage -Path "D:\data\winget-cli.msixbundle"
+# Add-AppxPackage -Path "D:\data\winget-cli.msixbundle" 
+$progressPreference = 'silentlyContinue'
 
-$checkPath = "C:\Program Files\7-Zip\7z.exe"
-$setupPath = Join-Path $scriptDirectory "apps\7z.msi"
+function Download-File {
+    param (
+        [string]$url,
+        [string]$outputPath
+    )
 
-if (-not (Test-Path $checkPath)) {
-    if (-not (Test-Path $setupPath)) {
-        try {
-            winget install 7zip.7zip --force --silent
-            # $client = New-Object System.Net.WebClient
-            # "https://7-zip.org/a/.msi"
-            # $client.DownloadFile("https://7-zip.org/a/7z2301-x64.msi", $setupPath)
-            Write-Host "7-Zip setup file downloaded."
-        } catch {
-            Write-Host "An error occurred while downloading the 7-Zip setup file."
-        }
-    }
+    $webClient = New-Object System.Net.WebClient
+    $webClient.DownloadFile($url, $outputPath)
+}
 
+Write-Information "Downloading WinGet and its dependencies..."
+
+Download-File -url "https://aka.ms/getwinget" -outputPath "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle"
+Download-File -url "https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx" -outputPath "Microsoft.VCLibs.x64.14.00.Desktop.appx"
+Download-File -url "https://github.com/microsoft/microsoft-ui-xaml/releases/download/v2.8.6/Microsoft.UI.Xaml.2.8.x64.appx" -outputPath "Microsoft.UI.Xaml.2.8.x64.appx"
+
+Add-AppxPackage -Path "Microsoft.VCLibs.x64.14.00.Desktop.appx"
+Add-AppxPackage -Path "Microsoft.UI.Xaml.2.8.x64.appx"
+Add-AppxPackage -Path "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle"
+
+$setupPath = "C:\Program Files\7-Zip\7z.exe"
+
+if (-not (Test-Path $setupPath)) {
     try {
-        Start-Process msiexec.exe -Wait -ArgumentList "/i `"$setupPath`" /quiet"
-        Write-Host "Installed 7-Zip"
+        # Install 7-Zip using winget if not already installed
+        winget install 7zip.7zip --force --silent
+
+        Write-Host "7-Zip installation completed."
     } catch {
-        Write-Host "An error occurred while installing 7-Zip."
+        Write-Host "An error occurred while installing 7-Zip: $_"
     }
 } else {
     Write-Host "7-Zip is already installed."
