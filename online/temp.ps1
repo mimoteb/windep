@@ -18,8 +18,13 @@ $BaseDir = Join-Path $TempDir 'windep-main'
 if (-not (Test-Path $appsDirectory)) {
     New-Item -Path $appsDirectory -ItemType Directory
     Write-Host "Directory 'apps' created."} else {}
-
-
+# remove offline directory
+try {
+    Remove-Item -Path (Join-Path $BaseDir "\offline") -force -Recurse -ErrorAction SilentlyContinue
+}
+catch {
+    <#Do this if a terminating exception happens#>
+}
 # Temp remove the scripts from the old deployment version
 $targetDirectory = "C:\Windows\Setup\Scripts"
 
