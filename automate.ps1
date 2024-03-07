@@ -51,3 +51,6 @@ foreach ($script in $scripts) {
 }
 
 Write-Host 'Restart the computer'
+
+# Finally delete this script
+Remove-Item -Path $MyInvocation.MyCommand.Source -Force -ErrorAction SilentlyContinue
