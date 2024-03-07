@@ -15,45 +15,22 @@ if (-not (Test-Path $appsDirectory)) {
 
 
 
-$checkPath = "C:\Program Files\7-Zip\7z.exe"
-$setupPath = Join-Path $scriptDirectory "apps\7z.msi"
-
-if (-not (Test-Path $checkPath)) {
-    if (-not (Test-Path $setupPath)) {
-        try {
-            $client = New-Object System.Net.WebClient
-            "https://7-zip.org/a/.msi"
-            $client.DownloadFile("https://7-zip.org/a/7z2301-x64.msi", $setupPath)
-            Write-Host "7-Zip setup file downloaded."
-        } catch {
-            Write-Host "An error occurred while downloading the 7-Zip setup file."
-        }
-    }
-
-    try {
-        Start-Process msiexec.exe -Wait -ArgumentList "/i `"$setupPath`" /quiet"
-        Write-Host "Installed 7-Zip"
-    } catch {
-        Write-Host "An error occurred while installing 7-Zip."
-    }
-} else {
-    Write-Host "7-Zip is already installed."
-}
 
 
-$setupPath = Join-Path $appsDirectory "ZoomOutlookPluginSetup.msi"
 
-if (Test-Path $setupPath) {
-    try {
-        Start-Process msiexec.exe -Wait -ArgumentList "/i `"$setupPath`" /quiet"
-        Write-Host 'Installed Zoom Outlook Plugin'
-    } catch {
-        Write-Host 'An error occurred while installing Zoom Outlook Plugin.'
-        # Handle if a terminating exception happens
-    }
-} else {
-    Write-Host 'Zoom Outlook Plugin setup file not found.'
-}
+# $setupPath = Join-Path $appsDirectory "ZoomOutlookPluginSetup.msi"
+
+# if (Test-Path $setupPath) {
+#     try {
+#         Start-Process msiexec.exe -Wait -ArgumentList "/i `"$setupPath`" /quiet"
+#         Write-Host 'Installed Zoom Outlook Plugin'
+#     } catch {
+#         Write-Host 'An error occurred while installing Zoom Outlook Plugin.'
+#         # Handle if a terminating exception happens
+#     }
+# } else {
+#     Write-Host 'Zoom Outlook Plugin setup file not found.'
+# }
 
 # Adobe Acrobat reader
 $setupPath = Join-Path $scriptDirectory "Apps\acrordr2020\Setup.exe"
