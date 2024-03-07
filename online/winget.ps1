@@ -24,22 +24,28 @@ $progressPreference = 'silentlyContinue'
 function Download-File {
     param (
         [string]$url,
-        [string]$outputPath
+        [string]$outputFileName
     )
+
+    $tempDirectory = [System.IO.Path]::GetTempPath()
+    $outputPath = Join-Path $tempDirectory $outputFileName
 
     $webClient = New-Object System.Net.WebClient
     $webClient.DownloadFile($url, $outputPath)
+
+    return $outputPath
 }
 
 Write-Information "Downloading WinGet and its dependencies..."
 
-Download-File -url "https://aka.ms/getwinget" -outputPath "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle"
-Download-File -url "https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx" -outputPath "Microsoft.VCLibs.x64.14.00.Desktop.appx"
-Download-File -url "https://github.com/microsoft/microsoft-ui-xaml/releases/download/v2.8.6/Microsoft.UI.Xaml.2.8.x64.appx" -outputPath "Microsoft.UI.Xaml.2.8.x64.appx"
+$wingetPath = Download-File -url "https://aka.ms/getwinget" -outputFileName "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle"
+$vclibsPath = Download-File -url "https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx" -outputFileName "Microsoft.VCLibs.x64.14.00.Desktop.appx"
+$uixamlPath = Download-File -url "https://github.com/microsoft/microsoft-ui-xaml/releases/download/v2.8.6/Microsoft.UI.Xaml.2.8.x64.appx" -outputFileName "Microsoft.UI.Xaml.2.8.x64.appx"
 
-Add-AppxPackage -Path "Microsoft.VCLibs.x64.14.00.Desktop.appx"
-Add-AppxPackage -Path "Microsoft.UI.Xaml.2.8.x64.appx"
-Add-AppxPackage -Path "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle"
+Add-AppxPackage -Path $vclibsPath
+Add-AppxPackage -Path $uixamlPath
+Add-AppxPackage -Path $wingetPath
+
 
 $setupPath = "C:\Program Files\7-Zip\7z.exe"
 
