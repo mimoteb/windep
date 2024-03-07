@@ -1,4 +1,5 @@
 
+# Install Zoom including ZoomOutlookPlugin
 $setupPath = Join-Path $appsDirectory "ZoomOutlookPluginSetup.msi"
 
 if (Test-Path $setupPath) {

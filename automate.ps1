@@ -44,7 +44,7 @@ Set-Location -Path $BaseDir
 Write-Host "Current Directory: $($PWD.Path)" -foregroundcolor yellow
 
 # this will be the main script
-$scripts = Get-ChildItem -path "$env:TEMP\windep-main\online\*.ps1"  | Sort-Object
+$scripts = Get-ChildItem -path "$env:TEMP\windep-main\online\*.ps1" -Recurse | Sort-Object
 foreach ($script in $scripts) {
     write-host '[Executing] :' $script -ForegroundColor cyan
     Start-Process powershell -ArgumentList "-ExecutionPolicy Bypass -File $script" -Wait
