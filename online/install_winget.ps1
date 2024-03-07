@@ -8,8 +8,9 @@ $URL = (Invoke-WebRequest -Uri $URL).Content | ConvertFrom-Json |
 # Set the download path to %temp%
 $downloadPath = [System.IO.Path]::Combine($env:TEMP, "winget-cli.msix")
 
-# Download the MSIX bundle
-Invoke-WebRequest -Uri $URL -OutFile $downloadPath -UseBasicParsing
+# Download the MSIX bundle using .NET WebClient
+$webClient = New-Object System.Net.WebClient
+$webClient.DownloadFile($URL, $downloadPath)
 
 # Install the MSIX bundle
 Add-AppxPackage -Path $downloadPath
