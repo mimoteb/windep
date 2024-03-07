@@ -1,3 +1,5 @@
+# this file has mistakes
+# Description
 write-host 'Disabling Tasks'
 $tempPath = [System.IO.Path]::Combine($env:TEMP, 'windep-main\config\tasks.lst')
 $items = Get-Content -Path $tempPath

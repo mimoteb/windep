@@ -1,4 +1,5 @@
 
+# Description
 # Check if Office is installed
 $officeInstalled = $false
 

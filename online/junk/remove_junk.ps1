@@ -1,3 +1,4 @@
+# Description
 write-host 'removing junk files and directories'
 
 Clear-RecycleBin -Force -Confirm:$false -ErrorAction Continue

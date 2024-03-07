@@ -1,3 +1,4 @@
+# Description
 Write-Host '[AppxPackages] Removal started' -ForegroundColor Yellow
 $curDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $JunkPath = Join-Path $curDir 'AppxPackages.lst'

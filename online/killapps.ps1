@@ -1,4 +1,5 @@
 # these apps can be killed before the processing so it will not make the computer slow.
+# Description
 Write-Host '[Windows Defender] Stopping Windows Defender' -ForegroundColor Cyan
 Set-MpPreference -DisableRealtimeMonitoring $true -Force
 

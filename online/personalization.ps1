@@ -1,3 +1,4 @@
+# Description
 write-host 'Turning on hibernation'
 powercfg /hibernate on
 

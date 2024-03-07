@@ -1,3 +1,4 @@
+# Description
 Write-Host '[Windows Capabilities] Removal started' -ForegroundColor Yellow
 
 $curDir = Split-Path -Parent $MyInvocation.MyCommand.Path

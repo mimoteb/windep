@@ -1,4 +1,4 @@
-write-host '[Info] Installing Apps' -ForegroundColor Yellow
+
 
 # STEP 1 is the app already installed
 # STEP 2 is there a downloaded copy
@@ -7,6 +7,9 @@ write-host '[Info] Installing Apps' -ForegroundColor Yellow
 # step 5 create shortcuts
 # change all downloaded items to temp directory instead
 
+# Description
+
+write-host '[Info] Installing Apps' -ForegroundColor Yellow
 # Get the path to the temporary directory
 $TempDir = [System.IO.Path]::GetTempPath()
 # Combine the temporary directory path with the desired subdirectory
