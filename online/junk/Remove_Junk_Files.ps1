@@ -1,4 +1,5 @@
 # is it correct to use recurse with the files????
+# if the file is existed take the ownership and reset ntfs permissions when it can't be deleted
 # Description
 
 # Remove files
