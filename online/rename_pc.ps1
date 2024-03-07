@@ -2,4 +2,4 @@
 $generatedNumber = Get-Random -Minimum 0 -Maximum 10001
 
 # Display the result using Write-Host
-Rename-Computer -NewName "PC$generatedNumber" -Force
+Rename-Computer -NewName "Deployment-PC-$generatedNumber" -Force
