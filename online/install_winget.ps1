@@ -1,15 +1,18 @@
-# get latest download url
+# Get the latest download URL
 $URL = "https://api.github.com/repos/microsoft/winget-cli/releases/latest"
 $URL = (Invoke-WebRequest -Uri $URL).Content | ConvertFrom-Json |
         Select-Object -ExpandProperty "assets" |
-        Where-Object "browser_download_url" -Match '.msixbundle' |
+        Where-Object { $_.browser_download_url -match '.msixbundle' } |
         Select-Object -ExpandProperty "browser_download_url"
 
-# download
-Invoke-WebRequest -Uri $URL -OutFile "Setup.msix" -UseBasicParsing
+# Set the download path to %temp%
+$downloadPath = [System.IO.Path]::Combine($env:TEMP, "winget-cli.msix")
 
-# install
-Add-AppxPackage -Path "Setup.msix"
+# Download the MSIX bundle
+Invoke-WebRequest -Uri $URL -OutFile $downloadPath -UseBasicParsing
 
-# delete file
-Remove-Item "Setup.msix"
+# Install the MSIX bundle
+Add-AppxPackage -Path $downloadPath
+
+# Delete the downloaded file
+Remove-Item $downloadPath
