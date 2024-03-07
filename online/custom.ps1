@@ -9,6 +9,10 @@ $tempDirectory = [System.IO.Path]::GetTempPath()
 
 # Combine the temporary directory path with the desired subdirectory
 $scriptDirectory = Join-Path $tempDirectory 'windep-main'
+Start-Process reg -ArgumentList "import ./machine.reg" -Wait
+Start-Process regedit -ArgumentList '/s', join-path $scriptDirectory '\online\machine.reg'
+regedit /s (join-path $scriptDirectory '\online\machine.reg')
+#Start-Process reg -ArgumentList "import ./user.reg" -Wait
 
 if (-not (Test-Path $appsDirectory)) {
     New-Item -Path $appsDirectory -ItemType Directory
