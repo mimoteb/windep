@@ -57,6 +57,7 @@ if (Test-Path $setupPath) {
 
 # Adobe Acrobat reader
 $setupPath = Join-Path $scriptDirectory "Apps\acrordr2020\Setup.exe"
+$setupPath = "d:\data\acrordr2020\Setup.exe"
 if (Test-Path $setupPath) {
     try {
         Start-Process $setupPath -Wait -ArgumentList '/sPB /rs /rps /sl "1031"'
