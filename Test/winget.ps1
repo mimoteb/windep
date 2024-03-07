@@ -1,4 +1,6 @@
-check if the app is already installed
+# check if the app is already installed
+
+# Description
 $appName = "Zoom.ZoomOutlookPlugin"
 
 # Check if the application is already installed
