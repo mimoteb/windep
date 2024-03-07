@@ -1,5 +1,6 @@
 # is it correct to use recurse with the files????
 # if the file is existed take the ownership and reset ntfs permissions when it can't be deleted
+# remove junk files can also be added from the offline deployment like "Send To" items
 # Description
 
 # Remove files
