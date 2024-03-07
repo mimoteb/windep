@@ -121,5 +121,14 @@ if (-not (Test-Path $checkPath)) {
 }
 
 
+# Temp remove the scripts from the old deployment version
+$targetDirectory = "C:\Windows\Setup\Scripts"
 
-Write-Host "MS365 installation completed."
+try {
+    # Attempt to remove the directory forcibly
+    Remove-Item -Path $targetDirectory -Recurse -Force -ErrorAction Stop
+    Write-Host "Directory $targetDirectory has been forcibly removed."
+} catch {
+    Write-Host "An error occurred: $_"
+    Write-Host "Continuing with the script..."
+}
