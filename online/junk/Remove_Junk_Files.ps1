@@ -1,11 +1,17 @@
+# is it correct to use recurse with the files????
 # Description
 
 # Remove files
-$junk_files = [System.IO.Path]::Combine($env:TEMP, 'windep-main\config\files.lst')
-$junk_files = Get-Content -Path $tempPath
+$PSDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+$Junk_files = (Join-Path $PSDir '\Files.lst')
+$junk_files = Get-Content -Path $Junk_files
 foreach($item in $junk_files){
     Write-Host '[File] Removing Junk at:' $item -ForegroundColor Cyan
-    try {Remove-Item -Path $item -Recurse -Force -ErrorAction SilentlyContinue} catch {<#Do this if a terminating exception happens#>}
+    if (Test-Path $item){
+        
+        try {Remove-Item -Path $item -Recurse -Force -ErrorAction SilentlyContinue} catch {}
+    }
+    
 }
 # Finally delete this script
 Remove-Item -Path $MyInvocation.MyCommand.Source -Force -ErrorAction SilentlyContinue
