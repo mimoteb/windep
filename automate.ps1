@@ -27,7 +27,9 @@ try {
 try {
     Write-Host "[Downloading] from $repo" -ForegroundColor Cyan
     Write-Host "[Info] to $repo_OutFile" -ForegroundColor Yellow
-    Invoke-WebRequest -Uri $repo -OutFile $repo_OutFile -ErrorAction Stop
+    $webClient = New-Object System.Net.WebClient
+    $webClient.DownloadFile($Link, $repo_OutFile)
+    #Invoke-WebRequest -Uri $repo -OutFile $repo_OutFile -ErrorAction Stop
 
     Write-Host "[Extracting] the repo" -foregroundcolor cyan
     Expand-Archive -Path $repo_OutFile -DestinationPath $TempDir -ErrorAction Stop
