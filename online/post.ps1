@@ -1,3 +1,4 @@
+# This script is supposed to run after all other scripts under \online were executed
 Write-Host '[Image] cleanup components' -ForegroundColor Cyan
 # start /wait dism.exe /Online /Cleanup-Image /StartComponentCleanup /ResetBase
 # start /wait dism.exe /Online /Cleanup-Image /SPSuperseded
