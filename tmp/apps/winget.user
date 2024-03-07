@@ -1,5 +1,0 @@
-winget install $item --force --silent
-
-asana.asana
-zoom.zoom
-telegram.telegramdesktop
