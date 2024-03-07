@@ -1,4 +1,4 @@
-
+# the paths are incorrect
 # OneNote is usually is a preinstalled software and should be removed from $officeExecutables check list to actually allow the installation of microsoft 365
 # Description
 # Check if Office is installed
