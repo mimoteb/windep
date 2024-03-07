@@ -18,10 +18,6 @@ if (-not (Test-Path $AppsDir)) {
     Write-Host "Directory 'apps' created."} else {}
 
 
-
-
-
-
 # $setupPath = Join-Path $AppsDir "ZoomOutlookPluginSetup.msi"
 
 # if (Test-Path $setupPath) {
@@ -133,8 +129,9 @@ foreach ($executable in $officeExecutables) {
         }
         
         Write-Host "Downloading MS365"
-        $office_exe = Join-Path $scriptDirectory 'apps\officesetup.exe'
+        $office_exe = Join-Path $scriptDirectory '\tmp\apps\officesetup.exe'
         $office_config = Join-Path $scriptDirectory 'lists\officede.xml'
         Start-Process -Wait -FilePath $office_exe -ArgumentList "/download", $office_config
+        Start-Process -Wait -FilePath $office_exe -ArgumentList "/configure", $office_config
     }
 }
