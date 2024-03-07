@@ -16,3 +16,4 @@ manually make sure that pre.ps1 will be executed at the very beginning, and post
 check if the user is admin then install admin apps, when not then 
 check the current logged in user, once admin install admin-wide-apps-and-reg, when user is not admin install user based apps and apply user-registry keys
 winget install $item --force --silent
+$scriptDirectory = Split-Path -Parent $MyInvocation.MyCommand.Path
