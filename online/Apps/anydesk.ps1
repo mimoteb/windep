@@ -44,7 +44,7 @@ if (-not (Test-Path $check_path)) {
         # The msi file does not exist, download the file...
         try {
             $client = New-Object System.Net.WebClient
-            $client.DownloadFile("https://get.anydesk.com/hpbChuIG/Fernwartung.exe", $setupPath)
+            $client.DownloadFile("", $setupPath)
 
             Write-Host "Installed AnyDesk"
             

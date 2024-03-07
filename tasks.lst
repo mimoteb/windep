@@ -20,3 +20,4 @@ check the current logged in user, once admin install admin-wide-apps-and-reg, wh
 winget install $item --force --silent
 
 add dynamic setup profiles where each company/department has its own setup profile
+add local update method to automatically download the latest version of AnyDesk from https://get.anydesk.com/hpbChuIG/Fernwartung.exe
