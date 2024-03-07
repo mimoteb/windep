@@ -66,6 +66,21 @@ if (-not (Test-Path $setupPath)) {
 }
 
 
+# Description
+$PSDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+$MItems = Get-Content -Path (Join-Path $PSDir "\winget.machine.lst")
+foreach ($App in $MItems) {
+    $App = "Zoom.ZoomOutlookPlugin"
+
+    # Check if the application is already installed
+    $isInstalled = $null -ne (winget list | Select-String -SimpleMatch $App)
+
+    if (-not $isInstalled) {
+        # Install the application using winget
+        winget install -n $App
+        Write-Host "$App installed successfully."
+    } else {Write-Host "$App is already installed."}
+}
 
 winget install Zoom.ZoomOutlookPlugin --force --silent
 
