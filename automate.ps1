@@ -3,7 +3,7 @@
 # Description
 Write-Host '[INFO] Stopping Windows Defender' -ForegroundColor Cyan
 Set-MpPreference -DisableRealtimeMonitoring $true -Force
-$repo = 'https://github.com/mimoteb/windep/archive/refs/heads/main.zip'
+$URL = 'https://github.com/mimoteb/windep/archive/refs/heads/main.zip'
 $repo_OutFile = "$env:TEMP\windep-main.zip"
 $TempDir = [System.IO.Path]::GetTempPath()
 $BaseDir = Join-Path $TempDir 'windep-main'
@@ -25,10 +25,10 @@ try {
 
 
 try {
-    Write-Host "[Downloading] from $repo" -ForegroundColor Cyan
+    Write-Host "[Downloading] from $URL" -ForegroundColor Cyan
     Write-Host "[Info] to $repo_OutFile" -ForegroundColor Yellow
     $webClient = New-Object System.Net.WebClient
-    $webClient.DownloadFile($Link, $repo_OutFile)
+    $webClient.DownloadFile($URL, $repo_OutFile)
     #Invoke-WebRequest -Uri $repo -OutFile $repo_OutFile -ErrorAction Stop
 
     Write-Host "[Extracting] the repo" -foregroundcolor cyan
