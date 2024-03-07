@@ -1,6 +1,6 @@
 Write-Host '[Windows Capabilities] Removal started' -ForegroundColor Yellow
 $curDir = Split-Path -Parent $MyInvocation.MyCommand.Path
-$JunkPath = Join-Path $curDir 'AppxPackages.lst'
+$JunkPath = Join-Path $curDir 'Capabilities.lst'
 
 $JunkItems = Get-Content -Path $tempPath
 
