@@ -7,17 +7,13 @@ foreach ($item in $JunkItems) {
 
     try {
         Get-AppxPackage -all *$item* | Remove-AppxPackage -AllUsers -ErrorAction SilentlyContinue
-        Get-AppxPackage -all *$item* | Remove-AppPackage -ErrorAction Continue
+        Get-AppxPackage -all *$item* | Remove-AppPackage -ErrorAction SilentlyContinue
         # WRONG: Remove-AppxPackage -Package $item -AllUsers -ErrorAction SilentlyContinue
-        Write-Host "[Success] AppxPackag removed: $item" -ForegroundColor Green
-    } catch {
-        Write-Host "[Error]: Failed to remove $item - $_" -ForegroundColor Red
-    }
+        Write-Host "[$item] AppxPackag removed: $item" -ForegroundColor Green
+    } catch {Write-Host "[$item]: Failed to remove $item - $_" -ForegroundColor Red}
 
     try {
         Get-AppxProvisionedPackage -Online | Where-Object { $_.PackageName -match [regex]::Escape($item) } | Remove-AppxProvisionedPackage -AllUsers -ErrorAction SilentlyContinue
-        Write-Host "[Success] removed provisioned package: $item" -ForegroundColor Green
-    } catch {
-        Write-Host "[Error]: Failed to remove $item - $_" -ForegroundColor Red
-    }
+        Write-Host "[$item] removed" -ForegroundColor Green
+    } catch {Write-Host "[$item]: Failed to remove - $_" -ForegroundColor Red}
 }
