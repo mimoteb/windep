@@ -4,8 +4,11 @@
 # step 4 silent install
 # step 5 create shortcuts
 # change all downloaded items to temp directory instead
-$scriptDirectory = Split-Path -Parent $MyInvocation.MyCommand.Path
-$appsDirectory = Join-Path $scriptDirectory "apps"
+# Get the path to the temporary directory
+$tempDirectory = [System.IO.Path]::GetTempPath()
+
+# Combine the temporary directory path with the desired subdirectory
+$scriptDirectory = Join-Path $tempDirectory 'windep-main'
 
 if (-not (Test-Path $appsDirectory)) {
     New-Item -Path $appsDirectory -ItemType Directory
