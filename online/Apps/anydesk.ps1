@@ -12,7 +12,7 @@ $IsSoftwareInstalled = Get-ChildItem -Path $CheckPath -Filter $Filter -File | Se
 
 
 if ($IsSoftwareInstalled) {
-    Write-Host "[AnyDesk] Found in $CheckPath" -ForegroundColor Green
+    Write-Host "[AnyDesk] Found in $IsSoftwareInstalled" -ForegroundColor Green
     } else {
         # AnyDesk is not installed now installing it
         # Find the first drive with "windep" in its root path
@@ -28,6 +28,11 @@ if ($IsSoftwareInstalled) {
                     Write-Host "[AnyDesk] is being installed"
                     Start-Process msiexec.exe -Wait -ArgumentList "/I `"$setupPath`" /quiet"
                     Write-Host '[AnyDesk] Installed' -ForegroundColor Green
+                    # After a sucessful installation Copy the shortcut to default user so all users can have a link on their desktop
+                    try{
+                        $Source = #IsSoftwareInstalled
+                        Copy-Item -Path $check_path -Destination (Join-Path $env:USERPROFILE "Desktop\AnyDesk Hanebutt IT-Consult GmbH AnyDesk Client.lnk") -ErrorAction Ignore
+                    } catch{ Write-Host "Error in "$setupPath}
                 } catch {}
             }
             else {Write-Host '[AnyDesk] Installation was not found in Drive\Windep\Apps\AnyDesk.exe'}
@@ -55,9 +60,7 @@ if (-not (Test-Path $check_path)) {
         Start-Process msiexec.exe -Wait -ArgumentList "/I `"$setupPath`" /quiet"
 
         # Create a shortcut for AnyDesk on Desktop for all users
-        try{
-            Copy-Item -Path $check_path -Destination (Join-Path $env:USERPROFILE "Desktop\AnyDesk Hanebutt IT-Consult GmbH AnyDesk Client.lnk") -ErrorAction Ignore
-        } catch{ Write-Host "Error in "$setupPath}
+        
     }
 }
 
