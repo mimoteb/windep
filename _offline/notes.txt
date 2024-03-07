@@ -1,0 +1,130 @@
+15.02.2023
+. the official iso downloaded using media creation tool (DE-64Bit)
+. the content of the iso were extracted
+. install.esd was isolated and extracted to wim with the index number which has Pro version of Windows
+. backup copy of wim was created for recovery
+. disabled individual capabilities except for Windows.Client.ShellComponents* (on the official website it says it is critical and Do NOT remove it)
+16.02.2023
+    fresh start with everything from the beginning.
+    got a physical computer to perform the tests on.
+    removed packages:
+        App.StepsRecorder
+        App.Support.QuickAssist
+        Browser.InternetExplorer
+        hello.face
+        Language.handwriting
+        Language.ocr
+        Language.speech
+        Language.TexttoSpeech
+        MathRecognizer
+        Media.WindowsMediaPlayer
+        Microsoft.Windows.MSPaint
+        Microsoft.Windows.Notepad
+        Microsoft.Windows.PowerShell.ISE
+        Microsoft.Windows.WordPad
+        OneCoreUAP.OneSync
+        OpenSSH.Client
+    i have also noted that when remvoving for example,
+    Language.OCR* it removes it for all of the available languages
+    the Capability Windows.Client.ShellComponents is IMPORTANT
+    I decided to keep the following capabilities:
+        Print.Fax.Scan
+        Print.Management.Console
+        because they can be important while printers are being used!
+    at this stage the wim file was exported with recovery compression,
+    to an esd file type, and added to the iso file using (ULTRAISO),
+    to keep boot sectors and not to be updated with other tools.
+    [post installation of a physical machine]
+        no changes were made, the image was properly committed.
+        commit instructions were updated in commit.ps1 file
+        commit.ps1: added Start Component Cleanup
+        commit.ps1: added Reset Base
+        commit.ps1: added scan health
+        commit.ps1: added unmount
+        [post installation on a physical]
+        this time i will try with HBCD and WinntSetup to apply the image to the drive
+        while using the hirens Winntsetup method i get an error and the installation is distrupted.
+        today the the experience was successful to make a minimal version of windows 10
+        the sucessful attempt was made possible after exporting a win file format to an esd
+        all the pervious changes should be noted, and installed again in a physical machine and 
+        observe the functionality on the physical computer, and eventually continue processing
+        the install.esd image file for further improvements.
+        two folders were noticed in WinSxS folder, one is Temp and the other is backup,
+        both of the above monetioned folders contains files which are likely to be safe-to-remove
+        the change log file should not be extended and rewrited and attached with the last modification,
+        to server as a backup on the servers
+
+18.02.2023
+	the structure is being updated in the scripts source directories
+
+21.02.2023
+    many researches were done about windows registry, to collect the values needed to be changed,
+    corresponding to the work system.
+    [edits]
+        remove windows capabilities:
+            App.SteppowershellpowershsRecorder
+            App.Support.QuickAssist
+            Browser.InternetExplorer
+            Hello.Face*
+            Language.Handwriting
+            Language.OCR
+            Language.Speech
+            Language.TextToSpeech
+            Math.MathRecognizer
+            Media.WindowsMediaPlayer
+            Microsoft.Windows.MSPaint
+            Microsoft.Windows.Notepad
+            Microsoft.Windows.PowerShell.ISE
+            Microsoft.Windows.WordPad
+            OneCoreUAP.OneSync
+            OpenSSH*
+        execution policy on a local machine was set to bypass in offline registry
+    [test]
+        Boot on Hyer-V: sucessful
+        Boot on physical: sucessful
+        Installation start time: 16:11
+        Installation finish time: 16:18
+        Get-ExecutionPolicy: Bypass (Local Machine)
+        capabilities: removed
+        answer file: sucessful
+    [comments]
+        an iso made after the 2nd part of modifications, and
+        *the execution policy of powershell was set to bypass (which was changed after mounting the registry offline)
+        *windows capabilities were sucessfully removed from the system in today's session.
+        some annoying apps are still at the start menu and can't be removed during the serviceing, like spotify and sollitare collection
+        the user hanebutt was created automatically
+        *changes were made sucessfully, this 2nd ESD Image will be the base.
+
+22.02.2023
+    [comments]
+        the last successful modification from 21.02.2023 was made the base, and mounted.
+        the Windows Fax and Scan (Print.Fax.Scan): adds faxing and scanning capabilities.
+
+    [edits]
+        Capability Removed: Print.Fax.Scan
+23.02.2023
+    [Answers File - comments]
+        in the installation process i get the error : productkey was not found in the answer file
+        <key> </key> should be manually added under <productkey>
+        <DiskConfiguraiton> the partitions are not being wiped up
+        <Label>WinRE</Label> added to the first partition with the order number 1
+        <Active>true</Active> was added to the partition number 4 under modify
+    [winPE]
+        added diskpart script in root folder of WinPE mount directory
+        the mounted PE will be monuted as x:\ durding sysprep
+23.04.2023
+To keep:
+    Windows Optional Features:
+        Windows-Defender-Default-Definitions
+        MicrosoftWindowsPowerShellV2Root    
+        MicrosoftWindowsPowerShellV2
+    Windows capabilities
+        Language.basic
+    AppxProvisionedPackages:
+        Microsoft.DesktopAppInstaller_2022.310.2333.0_neutral_~_8wekyb3d8bbwe
+        Microsoft.SecHealthUI_1000.22621.1.0_x64__8wekyb3d8bbwe              
+        Microsoft.StorePurchaseApp_12008.1001.113.0_neutral_~_8wekyb3d8bbwe  
+        Microsoft.VCLibs.140.00_14.0.30704.0_x64__8wekyb3d8bbwe              
+        Microsoft.WindowsCalculator_2020.2103.8.0_neutral_~_8wekyb3d8bbwe    
+        Microsoft.WindowsStore_22204.1400.4.0_neutral_~_8wekyb3d8bbwe        
+        Microsoft.WindowsTerminal_3001.12.10983.0_neutral_~_8wekyb3d8bbwe
