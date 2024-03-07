@@ -12,3 +12,6 @@ Disable Windows Autoupdate
 check if adobe reader is installed before the installation starts
 check if winget is installed before installing it again.
 add desciption at the beginning of each file
+manually make sure that pre.ps1 will be executed at the very beginning, and post will be executed once all other scripts were executed.
+check if the user is admin then install admin apps, when not then 
+check the current logged in user, once admin install admin-wide-apps-and-reg, when user is not admin install user based apps and apply user-registry keys
