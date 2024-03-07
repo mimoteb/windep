@@ -1,5 +1,13 @@
+############### Single Code Snippets
 $PSDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 del $MyInvocation.MyCommand.Source
+
+######################################
+
+# functions
+$webClient = New-Object System.Net.WebClient
+$webClient.DownloadFile($URL, $downloadPath)
+#######
 remove ContextMenuHandlers\Sharing
 remove open with iexplorer.exe and wordpad from hkey_classes_root\*\openwithlist
 Remove "Scan with Microsoft Defender" from context menu
