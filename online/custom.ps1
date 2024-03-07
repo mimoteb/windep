@@ -120,9 +120,6 @@ if (-not (Test-Path $checkPath)) {
     Write-Host "Firefox is already installed."
 }
 
-Write-Host "Downloading MS365"
-$office_exe = Join-Path $scriptDirectory 'apps\officesetup.exe'
-$office_config = Join-Path $scriptDirectory 'lists\officede.xml'
-Start-Process -Wait -FilePath $office_exe -ArgumentList "/download", $office_config
+
 
 Write-Host "MS365 installation completed."
