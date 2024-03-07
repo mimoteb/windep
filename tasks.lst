@@ -11,3 +11,4 @@ Disable Windows Autoupdate
 # Add Winget-Cli to Windows installation
 check if adobe reader is installed before the installation starts
 check if winget is installed before installing it again.
+add desciption at the beginning of each file
