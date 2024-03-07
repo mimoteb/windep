@@ -6,11 +6,7 @@ Clear-RecycleBin -Force -Confirm:$false -ErrorAction Continue
 
 
 # Remove directories
-$junkdir_list = [System.IO.Path]::Combine($env:TEMP, 'windep-main\config\directories.lst')
-$junkdir_list = Get-Content -Path $tempPath
-foreach($item in $junkdir_list){
-    Write-Host '[Directory] Removing Junk at:' $item -ForegroundColor Cyan
-    Remove-Item -Path $item -Recurse -Force -ErrorAction SilentlyContinue -Confirm:$false}
+
 
 
 Remove-Item -Path $env:TEMP -Recurse -Force -ErrorAction Continue -Confirm:$false
