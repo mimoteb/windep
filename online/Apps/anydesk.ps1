@@ -38,31 +38,3 @@ if ($IsSoftwareInstalled) {
             else {Write-Host '[AnyDesk] Installation was not found in Drive\Windep\Apps\AnyDesk.exe'}
         } else {Write-Host "[Drive\WinDep] Directory was not found." -ForegroundColor Red}
 }
-
-
-
-
-$setupPath = Join-Path $BaseDir "apps\anydesk.msi"
-if (-not (Test-Path $check_path)) {
-    # The shortcut does not exist
-    if (-not (Test-Path $setupPath)) {
-        # The msi file does not exist, download the file...
-        try {
-            $client = New-Object System.Net.WebClient
-            $client.DownloadFile("", $setupPath)
-
-            Write-Host "Installed AnyDesk"
-            
-        } catch {
-            # Handle if a terminating exception happens
-            Write-Host 'Error installing AnyDesk'
-        }
-        Start-Process msiexec.exe -Wait -ArgumentList "/I `"$setupPath`" /quiet"
-
-        # Create a shortcut for AnyDesk on Desktop for all users
-        
-    }
-}
-
-# Finally delete this script
-Remove-Item -Path $MyInvocation.MyCommand.Source -Force -ErrorAction SilentlyContinue
