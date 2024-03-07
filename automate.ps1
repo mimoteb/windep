@@ -1,4 +1,5 @@
 # the file name should be changed
+# New Challenge: let the pre.ps1 run at the very first beginning and post.ps1 the last one!
 # Description
 Write-Host '[INFO] Stopping Windows Defender' -ForegroundColor Cyan
 Set-MpPreference -DisableRealtimeMonitoring $true -Force
