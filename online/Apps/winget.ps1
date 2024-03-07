@@ -49,42 +49,18 @@ Add-AppxPackage -Path $vclibsPath
 Add-AppxPackage -Path $uixamlPath
 Add-AppxPackage -Path $wingetPath
 
-
-$setupPath = "C:\Program Files\7-Zip\7z.exe"
-
-if (-not (Test-Path $setupPath)) {
-    try {
-        # Install 7-Zip using winget if not already installed
-        winget install -e --silent --accept-source-agreements --accept-package-agreements 7zip.7zip --force --silent
-
-        Write-Host "7-Zip installation completed."
-    } catch {
-        Write-Host "An error occurred while installing 7-Zip: $_"
-    }
-} else {
-    Write-Host "7-Zip is already installed."
-}
-
-
 # Description
 $PSDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $MItems = Get-Content -Path (Join-Path $PSDir "\winget.machine.lst")
 foreach ($App in $MItems) {
-    $App = "Zoom.ZoomOutlookPlugin"
-
     # Check if the application is already installed
     $isInstalled = $null -ne (winget list | Select-String -SimpleMatch $App)
-
     if (-not $isInstalled) {
         # Install the application using winget
-        winget install -n $App
-        Write-Host "$App installed successfully."
-    } else {Write-Host "$App is already installed."}
+        winget install -e --silent --accept-source-agreements --accept-package-agreements $App --force --silent
+        Write-Host "[$App] installed successfully." -ForegroundColor Green
+    } else {Write-Host "[$App] is already installed." -ForegroundColor Yellow}
 }
-
-winget install Zoom.ZoomOutlookPlugin --force --silent
-
-winget install Mozilla.Firefox --force --silent
 
 # Finally delete this script
 Remove-Item -Path $MyInvocation.MyCommand.Source -Force -ErrorAction SilentlyContinue
