@@ -6,12 +6,12 @@ write-host '[Info] Installing Apps' -ForegroundColor Yellow
 # step 4 silent install
 # step 5 create shortcuts
 # change all downloaded items to temp directory instead
-$AppsDir = Join-Path $scriptDirectory "apps"
+$AppsDir = Join-Path $BaseDir "apps"
 # Get the path to the temporary directory
 $TempDir = [System.IO.Path]::GetTempPath()
 
 # Combine the temporary directory path with the desired subdirectory
-$scriptDirectory = Join-Path $TempDir 'windep-main'
+$BaseDir = Join-Path $TempDir 'windep-main'
 
 if (-not (Test-Path $AppsDir)) {
     New-Item -Path $AppsDir -ItemType Directory
@@ -33,7 +33,7 @@ if (-not (Test-Path $AppsDir)) {
 # }
 
 # Adobe Acrobat reader
-$setupPath = Join-Path $scriptDirectory "Apps\acrordr2020\Setup.exe"
+$setupPath = Join-Path $BaseDir "Apps\acrordr2020\Setup.exe"
 $setupPath = "d:\data\acrordr2020\Setup.exe"
 if (Test-Path $setupPath) {
     try {
@@ -48,7 +48,7 @@ if (Test-Path $setupPath) {
 
 #AnyDesk
 $check_path = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\AnyDesk Hanebutt IT-Consult GmbH AnyDesk Client\AnyDesk Hanebutt IT-Consult GmbH AnyDesk Client.lnk"
-$setupPath = Join-Path $scriptDirectory "apps\anydesk.msi"
+$setupPath = Join-Path $BaseDir "apps\anydesk.msi"
 if (-not (Test-Path $check_path)) {
     # The shortcut does not exist
     if (-not (Test-Path $setupPath)) {
@@ -74,7 +74,7 @@ if (-not (Test-Path $check_path)) {
 
 # Firefox
 $checkPath = "C:\Program Files\Mozilla Firefox\firefox.exe"
-$setupPath = Join-Path $scriptDirectory "apps\firefox.exe"
+$setupPath = Join-Path $BaseDir "apps\firefox.exe"
 
 if (-not (Test-Path $checkPath)) {
     if (-not (Test-Path $setupPath)) {
@@ -129,8 +129,8 @@ foreach ($executable in $officeExecutables) {
         }
         
         Write-Host "Downloading MS365"
-        $office_exe = Join-Path $scriptDirectory '\tmp\apps\officesetup.exe'
-        $office_config = Join-Path $scriptDirectory 'lists\officede.xml'
+        $office_exe = Join-Path $BaseDir '\tmp\apps\officesetup.exe'
+        $office_config = Join-Path $BaseDir 'lists\officede.xml'
         Start-Process -Wait -FilePath $office_exe -ArgumentList "/download", $office_config
         Start-Process -Wait -FilePath $office_exe -ArgumentList "/configure", $office_config
     }

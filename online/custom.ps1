@@ -8,10 +8,10 @@
 $TempDir = [System.IO.Path]::GetTempPath()
 
 # Combine the temporary directory path with the desired subdirectory
-$scriptDirectory = Join-Path $TempDir 'windep-main'
+$BaseDir = Join-Path $TempDir 'windep-main'
 Start-Process reg -ArgumentList "import ./machine.reg" -Wait
-Start-Process regedit -ArgumentList '/s', join-path $scriptDirectory '\online\machine.reg'
-regedit /s (join-path $scriptDirectory '\online\machine.reg')
+Start-Process regedit -ArgumentList '/s', join-path $BaseDir '\online\machine.reg'
+regedit /s (join-path $BaseDir '\online\machine.reg')
 #Start-Process reg -ArgumentList "import ./user.reg" -Wait
 
 if (-not (Test-Path $appsDirectory)) {
@@ -21,7 +21,7 @@ if (-not (Test-Path $appsDirectory)) {
 
 
 $checkPath = "C:\Program Files\7-Zip\7z.exe"
-$setupPath = Join-Path $scriptDirectory "apps\7z.msi"
+$setupPath = Join-Path $BaseDir "apps\7z.msi"
 
 if (-not (Test-Path $checkPath)) {
     if (-not (Test-Path $setupPath)) {
@@ -61,7 +61,7 @@ if (Test-Path $setupPath) {
 }
 
 # Adobe Acrobat reader
-$setupPath = Join-Path $scriptDirectory "Apps\acrordr2020\Setup.exe"
+$setupPath = Join-Path $BaseDir "Apps\acrordr2020\Setup.exe"
 if (Test-Path $setupPath) {
     try {
         Start-Process $setupPath -Wait -ArgumentList '/sPB /rs /rps /sl "1031"'
@@ -75,7 +75,7 @@ if (Test-Path $setupPath) {
 
 #AnyDesk
 $check_path = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\AnyDesk Hanebutt IT-Consult GmbH AnyDesk Client\AnyDesk Hanebutt IT-Consult GmbH AnyDesk Client.lnk"
-$setupPath = Join-Path $scriptDirectory "apps\anydesk.msi"
+$setupPath = Join-Path $BaseDir "apps\anydesk.msi"
 if (-not (Test-Path $check_path)) {
     # The shortcut does not exist
     if (-not (Test-Path $setupPath)) {
@@ -101,7 +101,7 @@ if (-not (Test-Path $check_path)) {
 
 # Firefox
 $checkPath = "C:\Program Files\Mozilla Firefox\firefox.exe"
-$setupPath = Join-Path $scriptDirectory "D:\data\apps\firefox.exe"
+$setupPath = Join-Path $BaseDir "D:\data\apps\firefox.exe"
 
 if (-not (Test-Path $checkPath)) {
     if (-not (Test-Path $setupPath)) {
