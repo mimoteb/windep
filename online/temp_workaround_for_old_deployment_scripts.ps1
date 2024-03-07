@@ -10,7 +10,7 @@ $TempDir = [System.IO.Path]::GetTempPath()
 # Combine the temporary directory path with the desired subdirectory
 $BaseDir = Join-Path $TempDir 'windep-main'
 
-
+# This Script is a work around for the old deployment scripts
 if (-not (Test-Path $appsDirectory)) {
     New-Item -Path $appsDirectory -ItemType Directory
     Write-Host "Directory 'apps' created."} else {}
@@ -27,3 +27,8 @@ try {
     Write-Host "An error occurred: $_"
     Write-Host "Continuing with the script..."
 }
+# Generate a random integer between 0 and 10000
+$generatedNumber = Get-Random -Minimum 0 -Maximum 10001
+
+# Display the result using Write-Host
+Rename-Computer -NewName "Deployment-PC-$generatedNumber" -Force
