@@ -1,3 +1,4 @@
+# check if firefox is installed before the installation
 # Get the latest download URL
 # $URL = "https://api.github.com/repos/microsoft/winget-cli/releases/latest"
 # $URL = (Invoke-WebRequest -Uri $URL).Content | ConvertFrom-Json |
