@@ -1,3 +1,6 @@
+Test if running the script as an administrator will install user apps to the administrator who elevated the script
+test if currently logged in can be a workaround to determine how to install user apps
+
 ############### Single Code Snippets
 $PSDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 del $MyInvocation.MyCommand.Source

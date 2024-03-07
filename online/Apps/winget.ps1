@@ -61,6 +61,7 @@ foreach ($App in $MItems) {
         Write-Host "[$App] installed successfully." -ForegroundColor Green
     } else {Write-Host "[$App] is already installed." -ForegroundColor Yellow}
 }
+# Install user Apps
 
 # Finally delete this script
 Remove-Item -Path $MyInvocation.MyCommand.Source -Force -ErrorAction SilentlyContinue
