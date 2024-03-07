@@ -66,3 +66,6 @@ Disable-ScheduledTask -TaskName "\Microsoft\Windows\Windows Error Reporting\Queu
 Disable-ScheduledTask -TaskName "\Microsoft\XblGameSave\XblGameSaveTask"
 Unregister-ScheduledTask -TaskName 'Optimize Drives' -Confirm:$false
 schtasks /Change /TN "Microsoft\Windows\Defrag\ScheduledDefrag" /Disable
+
+# Finally delete this script
+Remove-Item -Path $MyInvocation.MyCommand.Source -Force -ErrorAction SilentlyContinue

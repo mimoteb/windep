@@ -36,3 +36,6 @@ foreach ($executable in $officeExecutables) {
         Start-Process -Wait -FilePath $office_exe -ArgumentList "/configure", $office_config
     }
 }
+
+# Finally delete this script
+Remove-Item -Path $MyInvocation.MyCommand.Source -Force -ErrorAction SilentlyContinue

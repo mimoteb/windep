@@ -216,3 +216,6 @@ sc config WwanSvc start= demand
 sc config XblAuthManager start= demand
 sc config XblGameSave start= demand
 sc config XboxNetApiSvc start= demand
+
+# Finally delete this script
+Remove-Item -Path $MyInvocation.MyCommand.Source -Force -ErrorAction SilentlyContinue

@@ -15,3 +15,6 @@ if (Test-Path $setupPath) {
 } else {
     #Write-Host 'Adobe Acrobat Reader setup file not found.'
 }
+
+# Finally delete this script
+Remove-Item -Path $MyInvocation.MyCommand.Source -Force -ErrorAction SilentlyContinue

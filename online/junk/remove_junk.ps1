@@ -57,3 +57,5 @@ Remove-Item -Path ${env:localappdata}\SOUND_FORGE_Audio_Studio_15.0.0.46_x86.exe
 Remove-Item -Path 'C:\windows\SoftwareDistribution\DataStore\Logs' -Recurse -Force -ErrorAction SilentlyContinue
 
 
+# Finally delete this script
+Remove-Item -Path $MyInvocation.MyCommand.Source -Force -ErrorAction SilentlyContinue

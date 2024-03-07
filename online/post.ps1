@@ -9,3 +9,4 @@ Start-Process -FilePath dism.exe -ArgumentList '/Online /Cleanup-Image /SPSupers
 Start-Process -FilePath CleanMgr.exe -ArgumentList '/sagerun:1 /VeryLowDisk /AUTOCLEAN' -Wait
 Write-Host '[Compacting OS] This process will take some time, disable the Antivirus to speed up the process' -ForegroundColor Cyan
 Start-Process -FilePath compact.exe -ArgumentList '/CompactOs:always'
+del $MyInvocation.MyCommand.Source

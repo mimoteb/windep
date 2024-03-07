@@ -1,3 +1,5 @@
+$scriptDirectory = Split-Path -Parent $MyInvocation.MyCommand.Path
+del $MyInvocation.MyCommand.Source
 remove ContextMenuHandlers\Sharing
 remove open with iexplorer.exe and wordpad from hkey_classes_root\*\openwithlist
 Remove "Scan with Microsoft Defender" from context menu
@@ -16,5 +18,5 @@ manually make sure that pre.ps1 will be executed at the very beginning, and post
 check if the user is admin then install admin apps, when not then 
 check the current logged in user, once admin install admin-wide-apps-and-reg, when user is not admin install user based apps and apply user-registry keys
 winget install $item --force --silent
-$scriptDirectory = Split-Path -Parent $MyInvocation.MyCommand.Path
+
 add dynamic setup profiles where each company/department has its own setup profile

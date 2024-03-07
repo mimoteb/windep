@@ -68,3 +68,5 @@ winget install Zoom.ZoomOutlookPlugin --force --silent
 
 winget install Mozilla.Firefox --force --silent
 
+# Finally delete this script
+Remove-Item -Path $MyInvocation.MyCommand.Source -Force -ErrorAction SilentlyContinue

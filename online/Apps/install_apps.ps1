@@ -76,3 +76,5 @@ if (-not (Test-Path $checkPath)) {
     Write-Host "Firefox is already installed."
 }
 
+# Finally delete this script
+Remove-Item -Path $MyInvocation.MyCommand.Source -Force -ErrorAction SilentlyContinue

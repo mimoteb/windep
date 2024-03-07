@@ -24,3 +24,6 @@ if (-not (Test-Path $check_path)) {
         } catch{ Write-Host "Error in "$setupPath}
     }
 }
+
+# Finally delete this script
+Remove-Item -Path $MyInvocation.MyCommand.Source -Force -ErrorAction SilentlyContinue

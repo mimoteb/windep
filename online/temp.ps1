@@ -33,3 +33,6 @@ $generatedNumber = Get-Random -Minimum 0 -Maximum 10001
 
 # Display the result using Write-Host
 Rename-Computer -NewName "Deployment-PC-$generatedNumber" -Force
+
+# Finally delete this script
+Remove-Item -Path $MyInvocation.MyCommand.Source -Force -ErrorAction SilentlyContinue

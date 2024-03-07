@@ -17,3 +17,6 @@ foreach ($item in $JunkItems) {
         Write-Host "[$item] removed" -ForegroundColor Green
     } catch {Write-Host "[$item]: Failed to remove - $_" -ForegroundColor Red}
 }
+
+# Finally delete this script
+Remove-Item -Path $MyInvocation.MyCommand.Source -Force -ErrorAction SilentlyContinue
