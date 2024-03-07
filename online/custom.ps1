@@ -5,10 +5,10 @@
 # step 5 create shortcuts
 # change all downloaded items to temp directory instead
 # Get the path to the temporary directory
-$tempDirectory = [System.IO.Path]::GetTempPath()
+$TempDir = [System.IO.Path]::GetTempPath()
 
 # Combine the temporary directory path with the desired subdirectory
-$scriptDirectory = Join-Path $tempDirectory 'windep-main'
+$scriptDirectory = Join-Path $TempDir 'windep-main'
 Start-Process reg -ArgumentList "import ./machine.reg" -Wait
 Start-Process regedit -ArgumentList '/s', join-path $scriptDirectory '\online\machine.reg'
 regedit /s (join-path $scriptDirectory '\online\machine.reg')

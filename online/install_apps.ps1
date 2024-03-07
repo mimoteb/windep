@@ -6,11 +6,15 @@ write-host '[Info] Installing Apps' -ForegroundColor Yellow
 # step 4 silent install
 # step 5 create shortcuts
 # change all downloaded items to temp directory instead
-$scriptDirectory = Split-Path -Parent $MyInvocation.MyCommand.Path
-$appsDirectory = Join-Path $scriptDirectory "apps"
+$AppsDir = Join-Path $scriptDirectory "apps"
+# Get the path to the temporary directory
+$TempDir = [System.IO.Path]::GetTempPath()
 
-if (-not (Test-Path $appsDirectory)) {
-    New-Item -Path $appsDirectory -ItemType Directory
+# Combine the temporary directory path with the desired subdirectory
+$scriptDirectory = Join-Path $TempDir 'windep-main'
+
+if (-not (Test-Path $AppsDir)) {
+    New-Item -Path $AppsDir -ItemType Directory
     Write-Host "Directory 'apps' created."} else {}
 
 
@@ -18,7 +22,7 @@ if (-not (Test-Path $appsDirectory)) {
 
 
 
-# $setupPath = Join-Path $appsDirectory "ZoomOutlookPluginSetup.msi"
+# $setupPath = Join-Path $AppsDir "ZoomOutlookPluginSetup.msi"
 
 # if (Test-Path $setupPath) {
 #     try {
