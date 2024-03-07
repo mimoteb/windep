@@ -7,4 +7,3 @@ Write-Host $setupPath
 foreach ($d in Get-PSDrive) {
     Write-Host $d
 }
-#test
