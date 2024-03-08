@@ -1,3 +1,4 @@
+research windows sandbox for offline deployment
 Test if running the script as an administrator will install user apps to the administrator who elevated the script
 test if currently logged in can be a workaround to determine how to install user apps
 
