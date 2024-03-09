@@ -36,13 +36,9 @@ Windows Registry Editor Version 5.00
 "AllowAutoGameMode"=dword:00000000
 "AutoGameModeEnabled"=dword:00000000
 
-; Disabling grouping taskbar buttons (Current User)
-[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer]
-"NoTaskGrouping"=dword:00000001
-
 ; Disabling grouping taskbar buttons (Local Machine)
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
-"NoTaskGrouping"=dword:00000001
+"NoTaskGrouping"=dword:00000000
 
 ; Disabling improve inking and typing recognition
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\TextInput]
