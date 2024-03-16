@@ -1,18 +1,21 @@
-$tempDirectory = [System.IO.Path]::GetTempPath()
+$tempPath = .\tasks.lst
+$items = Get-Content -Path $tempPath
+# Read the file line by line
+Get-Content $items | ForEach-Object {
+    # Split each line into path and task name using "\" as the delimiter
+    $parts = $_.Trim() -split "\\"
 
-# Combine the temporary directory path with the desired subdirectory
-$BaseDir = Join-Path $tempDirectory 'windep'
-Write-Host '[$BaseDir] Base Dir'
-# List all drives
-$drives = Get-PSDrive -PSProvider FileSystem
+    # Check if there are at least two parts (path and task name)
+    if ($parts.Length -ge 2) {
+        # Extract the path and task name
+        $taskPath = $parts[0..($parts.Length - 2)] -join "\"
+        $taskName = $parts[-1]
+        Write-Host '[Task] Disabling' $taskName -ForegroundColor Cyan
+        # Disable the task using the task path
+        #Disable-ScheduledTask -TaskPath $taskPath -TaskName $taskName
+    }
+    else {
+        Write-Host "[ERROR] Invalid line: $_" -ForegroundColor Red
+    }
 
-# Find the first drive with "windep" in its root path
-$localWinDep = $drives | Where-Object { Test-Path (Join-Path $_.Root "\" -ChildPath "windep") } | Select-Object -First 1
-
-# Display the result
-if ($null -ne $localWinDep) {
-    $localWinDepLetter = $localWinDep.Name
-    Write-Host "[$localWinDepLetter] Found 'windep'" -ForegroundColor Green
-} else {
-    Write-Host "No drive found with 'windep' in its root path." -ForegroundColor Red
 }
