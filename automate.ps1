@@ -51,8 +51,9 @@ Write-Host "Current Directory: $($PWD.Path)" -foregroundcolor yellow
 # this will be the main script
 $scripts = Get-ChildItem -path "$env:TEMP\windep-main\online\*.ps1" -Recurse | Sort-Object
 foreach ($script in $scripts) {
-    write-host '[Executing] :' $script -ForegroundColor cyan
+    write-host '[Executing] :' $script -ForegroundColor Cyan
     Start-Process powershell -ArgumentList "-ExecutionPolicy Bypass -File $script" -Wait
+    Remove-Item -Path $script -Force -ErrorAction SilentlyContinue
 }
 
 Write-Host 'Restart the computer'

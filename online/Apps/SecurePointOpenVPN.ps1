@@ -18,6 +18,3 @@ try {
             Write-Host "Error in Securepoint VPN installation" -ForegroundColor Red
     }
 
-    
-# Finally delete this script
-Remove-Item -Path $MyInvocation.MyCommand.Source -Force -ErrorAction SilentlyContinue

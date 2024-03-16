@@ -9,6 +9,3 @@ foreach ($item in $JunkItems) {
         try {Disable-WindowsOptionalFeature -Online -FeatureName $item.Trim() -ErrorAction SilentlyContinue -NoRestart
         Write-Host "[Feature] Disabling "$item.Trim()} catch {}
     }
-
-# Finally delete this script
-Remove-Item -Path $MyInvocation.MyCommand.Source -Force -ErrorAction SilentlyContinue

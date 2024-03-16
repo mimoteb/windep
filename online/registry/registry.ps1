@@ -7,6 +7,3 @@ foreach ($File in $RegFiles) {
     Write-Host '[REG] The following file found in, and will be executed: '$File -ForegroundColor Cyan
     Start-Process regedit -ArgumentList '/s', $File -NoNewWindow -Wait
 }
-
-# Finally delete this script
-Remove-Item -Path $MyInvocation.MyCommand.Source -Force -ErrorAction SilentlyContinue

@@ -10,5 +10,3 @@ foreach ($item in $JunkItems) {
     Remove-WindowsCapability -Online -Name $item.Trim() -Verbose -ErrorAction SilentlyContinue
 }
 
-# Finally delete this script
-Remove-Item -Path $MyInvocation.MyCommand.Source -Force -ErrorAction SilentlyContinue

@@ -8,6 +8,3 @@ net stop WUAUSERV
 
 write-host '[OneDrive] Stopping oneDrive' -ForegroundColor Cyan
 taskkill /f /im onedrive.exe
-
-# Finally delete this script
-Remove-Item -Path $MyInvocation.MyCommand.Source -Force -ErrorAction SilentlyContinue

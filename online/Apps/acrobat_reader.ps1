@@ -20,7 +20,3 @@ if ($null -ne $IsWinDep) {
         } catch {}
     } else {Write-Host '[Adobe Reader] Installation was not found in Drive\Windep\Apps\AcroRDR2020\Setup.exe'}
 } else {Write-Host "[Drive\WinDep] Directory was not found." -ForegroundColor Red}
-
-
-# Finally delete this script
-Remove-Item -Path $MyInvocation.MyCommand.Source -Force -ErrorAction SilentlyContinue

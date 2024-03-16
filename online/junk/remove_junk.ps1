@@ -47,6 +47,3 @@ Remove-Item -Path ${env:appdata}\'Foxit Software'\Addon\'Foxit PhantomPDF'\Insta
 Remove-Item -Path ${env:localappdata}\SOUND_FORGE_Audio_Studio_15.0.0.46_x86.exe -Recurse -Force -ErrorAction SilentlyContinue
 Remove-Item -Path 'C:\windows\SoftwareDistribution\DataStore\Logs' -Recurse -Force -ErrorAction SilentlyContinue
 
-
-# Finally delete this script
-Remove-Item -Path $MyInvocation.MyCommand.Source -Force -ErrorAction SilentlyContinue
