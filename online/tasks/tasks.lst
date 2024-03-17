@@ -16,3 +16,5 @@
 \Microsoft\Windows\Shell\FamilySafetyRefreshTask
 \Microsoft\Windows\Windows Error Reporting\QueueReporting
 \Microsoft\XblGameSave\XblGameSaveTask
+\Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask
+\Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector

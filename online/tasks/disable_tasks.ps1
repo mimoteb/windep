@@ -1,4 +1,6 @@
 # this file has mistakes
+# get-scheduledtask | where-object {$_.taskname -like "ScheduledDefrag"} | disable-scheduledtask
+# TaskPath should look like "\dir1\subdir\"
 # Description
 write-host 'Disabling Tasks'
 $tempPath = [System.IO.Path]::Combine($env:TEMP, 'windep-main\config\tasks.lst')
