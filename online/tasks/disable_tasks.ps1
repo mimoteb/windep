@@ -12,8 +12,9 @@ if (Test-Path -Path $tempFilePath) {
 
     foreach ($task in $tasksToDisable) {
         $taskName = Split-Path -Path $task -Leaf
-        Disable-ScheduledTask -TaskName $taskName -ErrorAction SilentlyContinue
         Write-Host ("[Task] Disabling '{0}'" -f $taskName) -ForegroundColor Cyan
+
+        Disable-ScheduledTask -TaskName $task -ErrorAction SilentlyContinue
     }
 }
 else {
