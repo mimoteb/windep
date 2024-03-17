@@ -20,13 +20,4 @@
 \Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector
 \Microsoft\Windows\DiskFootprint\Diagnostics
 \Microsoft\Windows\NetTrace\GatherNetworkInfo
-
-Disable-ScheduledTask -TaskName "\Microsoft\Windows\Autochk\Proxy"
-Disable-ScheduledTask -TaskName "\Microsoft\Windows\CloudExperienceHost\CreateObjectTask"
-Disable-ScheduledTask -TaskName "\Microsoft\Windows\Feedback\Siuf\DmClient"
-Disable-ScheduledTask -TaskName "\Microsoft\Windows\Feedback\Siuf\DmClientOnScenarioDownload"
-Disable-ScheduledTask -TaskName "\Microsoft\Windows\Shell\FamilySafetyRefreshTask"
-Disable-ScheduledTask -TaskName "\Microsoft\Windows\Windows Error Reporting\QueueReporting"
-Disable-ScheduledTask -TaskName "\Microsoft\XblGameSave\XblGameSaveTask"
-Unregister-ScheduledTask -TaskName 'Optimize Drives' -Confirm:$false
-schtasks /Change /TN "Microsoft\Windows\Defrag\ScheduledDefrag" /Disable
+\Microsoft\Windows\Defrag\ScheduledDefrag"

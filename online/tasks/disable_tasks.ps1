@@ -4,8 +4,8 @@
 # when disabling or enabling the task taskname can be full path + task name
 # Description
 Write-Host "Disabling Tasks" -ForegroundColor Yellow
-
-$tempFilePath = Join-Path -Path $env:TEMP -ChildPath "windesk-main/config/tasks.lst"
+$PSDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+$tempFilePath = Join-Path -Path $PSDir -ChildPath "tasks.lst"
 
 if (Test-Path -Path $tempFilePath) {
     $tasksToDisable = Get-Content -Path $tempFilePath

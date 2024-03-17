@@ -1,8 +1,9 @@
 # Description
 
 write-host 'Disabling services/ stopping them temporarily'
-$tempPath = [System.IO.Path]::Combine($env:TEMP, 'windep-main\config\services.lst')
-$items = Get-Content -Path $tempPath
+$PSDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+$ItemList = Join-Path $PSDir -ChildPath "services.lst"
+$items = Get-Content -Path $ItemList
 
 foreach ($item in $items)
 {
