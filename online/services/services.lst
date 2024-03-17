@@ -19,7 +19,6 @@ MixedRealityOpenXRSvc
 SysMain
 DoSvc
 Dmwappushservice
-DiagTrack
 XboxNetApiSvc
 XblGameSave
 XblAuthManager
@@ -48,7 +47,6 @@ icssvc
 MixedRealityOpenXRSvc
 SysMain
 DoSvc
-Dmwappushservice
 DiagTrack
 XboxNetApiSvc
 XblGameSave
@@ -56,3 +54,8 @@ XblAuthManager
 XboxGipSvc
 WSearch
 defragsvc
+AxInstSV
+AJRouter
+AppReadiness
+RemoteRegistry
+NetTcpPortSharing
