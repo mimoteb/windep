@@ -3,14 +3,13 @@
 # Description
 # Check if Office is installed
 $officeInstalled = $false
-
+$PSDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 # List of common Office executable names
 $officeExecutables = @(
     "excel.exe",
     "winword.exe",
     "powerpnt.exe",
-    "outlook.exe",
-    "mspub.exe"
+    "outlook.exe"
 )
 
 # Check if any Office executable exists in Program Files directory
@@ -30,8 +29,8 @@ foreach ($executable in $officeExecutables) {
         }
         
         Write-Host "Downloading MS365"
-        $office_exe = Join-Path $BaseDir '\tmp\apps\officesetup.exe'
-        $office_config = Join-Path $BaseDir '\config\office-de-config.xml'
+        $office_exe = Join-Path $PSDir '\officesetup.exe'
+        $office_config = Join-Path $PSDir '\office-de-config.xml'
         Start-Process -Wait -FilePath $office_exe -ArgumentList "/download", $office_config
         Start-Process -Wait -FilePath $office_exe -ArgumentList "/configure", $office_config
     }
