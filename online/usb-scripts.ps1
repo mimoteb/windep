@@ -8,7 +8,7 @@ if ($null -ne $IsWinDep) {
     # this will be the main script
     $Scripts = Get-ChildItem -path "$env:TEMP\windep\*.ps1" -Recurse | Sort-Object
     foreach ($script in $Scripts) {
-        write-host '[Executing] :' $script -ForegroundColor Cyan
+        write-host '[Executing] on USB-Stick script:' $script -ForegroundColor Cyan
         Start-Process powershell -ArgumentList "-ExecutionPolicy Bypass -File $Script" -Wait
     }
 }
