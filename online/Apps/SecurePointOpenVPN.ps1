@@ -1,4 +1,3 @@
-
 $PSDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 # Specify the destination path for the downloaded MSI file
@@ -6,7 +5,7 @@ $SetupFile = Join-Path -Path $PSDir -ChildPath "OpenVPNClient.msi"
 
 # Check if the MSI file already exists
 if (-not (Test-Path $SetupFile)) {
-    # Installation file doesn't exist, will start downloading from github
+    # Installation file doesn't exist, will start downloading from GitHub
     # Specify the URL of the GitHub releases page
     $url = "https://api.github.com/repos/Securepoint/openvpn-client/releases/latest"
 
@@ -25,14 +24,15 @@ if (-not (Test-Path $SetupFile)) {
     # Dispose of the WebClient object
     $webClient.Dispose()
     
-    Write-Host "Download complete. MSI file saved to: $SetupFile"
+    Write-Host "[OpenVPN] Download complete. MSI file saved to: $SetupFile" -ForegroundColor Green
 } else {
-    Write-Host "MSI file already exists. Skipping download."
+    Write-Host "[OpenVPN] MSI file already exists. Skipping download." -ForegroundColor Yellow
 }
+
 # Check if the SSLVpnClient.exe file exists
 $sslVpnClientPath = "C:\Program Files (x86)\Securepoint SSL VPN\SSLVpnClient.exe"
 if (Test-Path $sslVpnClientPath) {
-    Write-Host "SSL VPN client already installed. Skipping installation."
+    Write-Host "[OpenVPN] SSL VPN client already installed. Skipping installation." -ForegroundColor Yellow
 } else {
     # Execute msiexec with the specified parameters
     Start-Process -FilePath "msiexec" -ArgumentList "/qn /i `"$destinationPath`" CWINVERSION=10" -Wait
