@@ -5,7 +5,7 @@ $Laptop = Get-WmiObject -Class Win32_Battery -ErrorAction SilentlyContinue
 
 if ($Laptop) {
     # Laptop detected
-    
+
     # Specify the destination path for the downloaded MSI file
     $SetupFile = Join-Path -Path $PSDir -ChildPath "OpenVPNClient.msi"
 
@@ -46,5 +46,5 @@ if ($Laptop) {
 
 }
 
-# If execution reaches here, it means no laptop is detected
-Write-Host "No laptop detected. Proceeding with laptop software installation."
+# If execution reaches here, it means no battery is detected
+Write-Host "[Laptop] No laptop detected"
