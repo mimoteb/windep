@@ -1,20 +1,30 @@
-# Check if SecurePoint OpenVPN is installed at the beginning 
-# Execute script only when laptop is detected i.e. when there is a battery
-# Download using webclient
-# Secure Point language selection prompt suspends the automation
-# Description
-if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs; exit }
-# this code must be runned as an administrator
-$URL = "https://sourceforge.net/projects/securepoint/files/latest/download"
-$FileName = $env:TEMP + "\securepointvpn.exe"
-try { 
-    Write-Host "[OpenVPN] Downloading to : " + $FileName -ForegroundColor Cyan
-    $webClient = New-Object System.Net.WebClient
-    $webClient.DownloadFile($URL, $FileName)
-        Write-Host "[OpenVPN] downloaded successfully." -ForegroundColor Green
-        & $FileName /qn
-    }
-        catch {
-            Write-Host "Error in Securepoint VPN installation" -ForegroundColor Red
-    }
+# Specify the URL of the GitHub releases page
+$url = "https://api.github.com/repos/Securepoint/openvpn-client/releases/latest"
 
+# Send a GET request to the GitHub API to fetch information about the latest release
+$response = Invoke-RestMethod -Uri $url
+
+# Extract the download URL of the MSI file from the response
+$latestMsiLink = $response.assets | Where-Object { $_.name -like "*.msi" } | Select-Object -ExpandProperty browser_download_url
+
+# Specify the destination path for the downloaded MSI file
+$destinationPath = Join-Path -Path $PSScriptRoot -ChildPath "OpenVPNClient.msi"
+
+# Check if the MSI file already exists
+if (-not (Test-Path $destinationPath)) {
+    # Create a WebClient object
+    $webClient = New-Object System.Net.WebClient
+    
+    # Download the MSI file from the link
+    $webClient.DownloadFile($latestMsiLink, $destinationPath)
+    
+    # Dispose of the WebClient object
+    $webClient.Dispose()
+    
+    Write-Host "Download complete. MSI file saved to: $destinationPath"
+} else {
+    Write-Host "MSI file already exists. Skipping download."
+}
+
+# Execute msiexec with the specified parameters
+Start-Process -FilePath "msiexec" -ArgumentList "/qn /i `"$destinationPath`" CWINVERSION=10" -Wait
