@@ -10,9 +10,7 @@ $officeExecutables = @(
     "winword.exe",
     "powerpnt.exe",
     "outlook.exe",
-    "mspub.exe",
-    "onenote.exe",
-    "lync.exe"
+    "mspub.exe"
 )
 
 # Check if any Office executable exists in Program Files directory
