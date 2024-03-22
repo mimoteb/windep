@@ -10,6 +10,5 @@ if ($null -ne $IsWinDep) {
     foreach ($script in $Scripts) {
         write-host '[Executing] :' $script -ForegroundColor Cyan
         Start-Process powershell -ArgumentList "-ExecutionPolicy Bypass -File $Script" -Wait
-        Remove-Item -Path $Script -Force -ErrorAction SilentlyContinue
     }
 }
