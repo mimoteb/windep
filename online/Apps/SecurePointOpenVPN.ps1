@@ -1,3 +1,5 @@
+
+$PSDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 # Specify the URL of the GitHub releases page
 $url = "https://api.github.com/repos/Securepoint/openvpn-client/releases/latest"
 
@@ -8,7 +10,7 @@ $response = Invoke-RestMethod -Uri $url
 $latestMsiLink = $response.assets | Where-Object { $_.name -like "*.msi" } | Select-Object -ExpandProperty browser_download_url
 
 # Specify the destination path for the downloaded MSI file
-$destinationPath = Join-Path -Path $PSScriptRoot -ChildPath "OpenVPNClient.msi"
+$destinationPath = Join-Path -Path $PSDir -ChildPath "OpenVPNClient.msi"
 
 # Check if the MSI file already exists
 if (-not (Test-Path $destinationPath)) {
